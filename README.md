@@ -8,6 +8,19 @@ This repository contains an in-progress thesis draft on a constructive human–A
 
 - `THESIS.md` — main draft
 
+## Proofs
+
+- `proofs/author-proof.ethereum.json` — signed authorship claim for `THESIS.md` (EIP-191 `personal_sign` style)
+
+Verification options:
+
+- Etherscan “Verify Signature” tool (paste message + signature + address): https://etherscan.io/verifySig
+- Programmatic verification (e.g. `ethers.verifyMessage(message, signature)` should recover the same address)
+
+## Specs
+
+- `spec/` — draft JSON schemas and contract notes (implementation-oriented; expected to change)
+
 ## Feedback
 
 - Open an issue for critique, missing references, or conceptual gaps.

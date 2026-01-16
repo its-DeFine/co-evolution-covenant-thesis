@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/its-DeFine/co-evolution-covenant-thesis/blob/main/spec/authorship-proof.schema.json",
+  "title": "Co-Evolution Covenant Authorship Proof",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "chain",
+    "address",
+    "created_at",
+    "repo",
+    "author_alias",
+    "github",
+    "artifacts",
+    "message",
+    "signature"
+  ],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "chain": { "type": "string", "description": "Chain family, e.g. ethereum" },
+    "address": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "repo": { "type": "string" },
+    "author_alias": { "type": "string" },
+    "github": { "type": "string" },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["sha256"],
+        "properties": {
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+        }
+      }
+    },
+    "message": { "type": "string" },
+    "signature": { "type": "string", "description": "EIP-191 personal_sign style signature, 0x-prefixed." }
+  }
+}
+
