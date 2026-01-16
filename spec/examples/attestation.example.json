@@ -1,0 +1,51 @@
+{
+  "schema_version": "coc-attestation-0.1",
+  "issued_at": "2026-01-16T18:00:00Z",
+  "subject": {
+    "subject_id": "sha256:EXAMPLE_REDACTED"
+  },
+  "bdi": {
+    "bdi_id": "bdi:example-v1",
+    "bdi_version": "1.0.0"
+  },
+  "evaluation": {
+    "protocol_id": "eval:rubric-2026-01-16",
+    "window": {
+      "start_at": "2026-01-01T00:00:00Z",
+      "end_at": "2026-01-16T00:00:00Z"
+    },
+    "test_types": ["unassisted", "retention", "transfer"]
+  },
+  "scores": {
+    "reasoning_problem_solving": { "value": 0.62, "confidence": 0.7 },
+    "epistemic_hygiene": { "value": 0.58, "confidence": 0.65 },
+    "communication": { "value": 0.66, "confidence": 0.6 }
+  },
+  "deltas": {
+    "reasoning_problem_solving": 0.04,
+    "epistemic_hygiene": 0.03,
+    "communication": 0.02
+  },
+  "evidence": [
+    {
+      "type": "evaluation_report_hash",
+      "ref": "sha256:EXAMPLE_EVIDENCE_REDACTED",
+      "description": "Redacted evaluation artifact reference"
+    }
+  ],
+  "signatures": [
+    {
+      "role": "auditor",
+      "signer_id": "auditor:example",
+      "signature": "base64:EXAMPLE_SIGNATURE",
+      "signed_at": "2026-01-16T18:00:00Z"
+    },
+    {
+      "role": "human",
+      "signer_id": "human:example",
+      "signature": "base64:EXAMPLE_SIGNATURE",
+      "signed_at": "2026-01-16T18:05:00Z"
+    }
+  ]
+}
+

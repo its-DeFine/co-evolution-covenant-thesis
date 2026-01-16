@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it."
+title: "The Co‑Evolution Covenant: Attested Human Growth in Human–AI Partnerships"
+type: manuscript
+authors:
+  - name: "DeFine"
+repository-code: "https://github.com/its-DeFine/co-evolution-covenant-thesis"
+url: "https://github.com/its-DeFine/co-evolution-covenant-thesis"
+license: "CC-BY-4.0"
+version: "0.2.0"
+date-released: "2026-01-16"

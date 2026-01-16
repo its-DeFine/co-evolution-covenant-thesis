@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/its-DeFine/co-evolution-covenant-thesis/blob/main/spec/bdi.schema.json",
+  "title": "Co-Evolution Covenant Bindable Declaration of Intent (BDI)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["bdi_id", "purpose", "capability_vector", "boundaries", "control", "evaluation", "amendments"],
+  "properties": {
+    "bdi_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "purpose": { "type": "string" },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "in_scope": { "type": "array", "items": { "type": "string" } },
+        "out_of_scope": { "type": "array", "items": { "type": "string" } },
+        "escalation_rules": { "type": "string" }
+      }
+    },
+    "capability_vector": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "boundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["truthfulness", "manipulation", "safety", "data_retention"],
+      "properties": {
+        "truthfulness": { "type": "string" },
+        "manipulation": { "type": "string" },
+        "safety": { "type": "string" },
+        "data_retention": { "type": "string" }
+      }
+    },
+    "control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tool_permissions", "memory_permissions", "autonomy_level", "hard_stop"],
+      "properties": {
+        "tool_permissions": { "type": "string" },
+        "memory_permissions": { "type": "string" },
+        "autonomy_level": { "type": "string" },
+        "hard_stop": { "type": "string" }
+      }
+    },
+    "evaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["baseline", "unassisted_cadence", "retention_cadence", "transfer_cadence"],
+      "properties": {
+        "baseline": { "type": "string" },
+        "unassisted_cadence": { "type": "string" },
+        "retention_cadence": { "type": "string" },
+        "transfer_cadence": { "type": "string" },
+        "rubric_id": { "type": "string" }
+      }
+    },
+    "attestation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "disclosure_level": { "type": "string" },
+        "auditor_id": { "type": "string" },
+        "evidence_policy": { "type": "string" }
+      }
+    },
+    "amendments": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["review_cadence", "process"],
+      "properties": {
+        "review_cadence": { "type": "string" },
+        "process": { "type": "string" }
+      }
+    }
+  }
+}
+

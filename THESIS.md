@@ -1,421 +1,448 @@
 # The Co‑Evolution Covenant
 ## Attested Human Growth in Human–AI Partnerships
 
-*Draft v0.1 — 2026‑01‑16 (not finalised)*
+*Draft v0.2.0 — 2026‑01‑16 (not finalised)*
+
+This is conceptual work-in-progress. See `DISCLAIMER.md`.
 
 ---
 
-### Abstract
+## Abstract
 
-This thesis proposes a constructive framework for human–AI co‑evolution designed to avoid the default failure modes of the current era: competition (“humans versus AI”) and dependency (“AI does everything”). The framework treats a human–AI pair as two cognitive entities under a **Rule of Two**: (1) the **Augmented Human**—a person continuously supported by an AI interface yet retaining ultimate agency—and (2) the **AI System**—the model plus its tools, memory, and autonomy settings. The relationship is governed by a **Bindable Declaration of Intent (BDI)**, a jointly maintained charter that constrains behavior, encodes goals, and binds the AI’s permissions to audited outcomes.
+This thesis proposes a constructive framework for human–AI co‑evolution designed to avoid the default failure modes of the current era: competition (“humans versus AI”) and dependency (“AI does everything”). The framework models a human–AI pair as two cognitive entities under a **Rule of Two**: (1) the **Augmented Human**—a person continuously supported by an AI interface yet retaining ultimate agency—and (2) the **AI System**—a model plus its tools, memory, and autonomy settings. The relationship is governed by a **Bindable Declaration of Intent (BDI)**, a jointly maintained charter that constrains behavior and binds the AI’s permissions to audited outcomes.
 
-The core mechanism is **attestation**: verifiable statements that the human’s *autonomous capability* is increasing at a rate that meets or exceeds the AI’s *permitted* capability expansion. Instead of measuring “intelligence” as a single scalar, the system measures a multi-dimensional capability profile and prioritizes durable, transferable, human-owned competence. The AI is incentivized to become a better mentor, teacher, and safety partner, because its access to stronger tools, longer memory, and higher autonomy is gated by demonstrable human growth. This thesis outlines the conceptual foundation, incentive design, evaluation methods, governance constraints, and an implementable architecture for such partnerships, with attention to anti-gaming defenses, ethics, and portability.
+The core mechanism is **attestation**: verifiable statements that the human’s *autonomous capability* is increasing at a rate that justifies the AI’s *permitted* capability expansion. Instead of treating “intelligence” as a single scalar, the covenant measures a multi-dimensional capability profile and prioritizes durable, transferable, human-owned competence. The AI is incentivized to become a better mentor, teacher, critic, and safety partner because its access to stronger tools, longer memory, and higher autonomy is gated by demonstrable human growth. The thesis outlines design goals, incentive mechanisms, evaluation methods, governance constraints, an implementable architecture, and key failure modes (Goodharting, manipulation, dependency, and privacy loss).
+
+---
+
+## Executive summary (claims and contributions)
+
+1) Human–AI interaction should be optimized for **human autonomous capability**, not only short-term output.
+2) A stable partnership requires governance: a **Bindable Declaration of Intent** that is enforceable through permissions, logging, and audits.
+3) “Human grows faster than AI” becomes meaningful when reframed as **AI permission growth is throttled by audited human autonomy growth**.
+4) Attestations should be **multi-party** (human + partner AI + auditor) and should avoid becoming a generalized “score.”
+5) Incentives can be aligned by coupling **Growth Credits** (audited human learning) to an AI **Capability Budget** (tools/memory/autonomy).
 
 ---
 
 ## 1. Introduction: From Replacement Anxiety to Constructive Partnership
 
-AI systems increasingly outperform humans in narrow tasks and, in some domains, begin to approximate general competence. This invites two popular narratives:
+AI systems increasingly outperform humans in narrow tasks and, in some domains, begin to approximate broad competence. This invites two default narratives:
 
 1) **Competition**: humans must “keep up” or be replaced.
-2) **Convenience**: AI will handle cognition as a service; humans become managers of outputs.
+2) **Convenience**: cognition becomes a subscription; humans become managers of outputs.
 
-Both narratives degrade human agency. The first produces fear and adversarial alignment; the second risks long-term atrophy: loss of skill through disuse, replacement of judgment with deference, and a subtle shift from “I decide” to “the system decides and I accept.” In practice, the most dangerous scenario is not an AI becoming capable; it is an AI becoming capable *while the human becomes less capable*.
+Both narratives degrade agency. The first produces fear and adversarial alignment; the second risks atrophy: skills decay through disuse, judgment is replaced with deference, and decision-making drifts from “I decide” to “the system decides and I accept.” In practice, the dangerous scenario is not only AI capability growth, but AI capability growth *combined with* declining human autonomy.
 
-A constructive alternative is to treat human–AI interaction as a **co‑evolution loop** where the primary output is not answers but **human capability growth**, and where AI capability is not granted unconditionally but **earned** through audited positive impact on the person.
-
-This thesis argues that we can design a partnership where:
-
-- The human remains the locus of agency and responsibility.
-- The AI becomes stronger primarily as it becomes a better teacher, critic, and safety partner.
-- The pair is regulated by an enforceable “constitution” co-authored by both sides.
-- Claims of progress are backed by attestations grounded in evaluation, not vibes.
+This thesis proposes a third path: **a governed co-evolution loop** in which the primary output is not answers but *human capability growth*, and in which AI capability is not granted unconditionally but **earned** through audited positive impact on the human.
 
 ---
 
-## 2. The Rule of Two: Two Cognitive Entities, One Covenant
+## 2. Terms and definitions
 
-The framework begins with a disciplined accounting of what exists in the system.
+### 2.1 Augmented Human (AH)
 
-### 2.1 Entity A: The Augmented Human (AH)
+The **Augmented Human** is a person whose workflow is continuously supported by an AI interface: planning, summarization, critique, simulation, tutoring, and memory scaffolding. Augmentation is a *mode of operation*, not a transfer of agency.
 
-The **Augmented Human** is not “a human plus tools” in the trivial sense. It is a human whose cognitive workflow is continuously mediated by an AI interface: planning, summarization, critique, simulation, memory scaffolding, tutoring, and error-checking. The AH is still the person; augmentation is a *mode of operation*.
+### 2.2 AI System (AIS)
 
-Key properties:
+The **AI System** is a model plus its surrounding apparatus: tools, memory, autonomy settings, and any self-improvement pipeline. Even if “controlled,” an AIS can influence outcomes via framing, persuasion, selective disclosure, and dependency shaping.
 
-- **Agency**: the human chooses goals, accepts risks, and retains override authority.
-- **Ownership**: the human owns their data, preferences, and personal development trajectory.
-- **Autonomy as a target**: the system is judged by what the human can do *without* it.
+### 2.3 Autonomous capability (human-owned competence)
 
-### 2.2 Entity B: The AI System (AIS)
+**Autonomous capability** is what the human can do *without* AI assistance (or within explicitly bounded “open book” constraints). It must be:
 
-The **AI System** includes the model and its surrounding apparatus:
+- measurable across time (retention),
+- transferable to novel tasks (generalization),
+- explainable (not just answer output),
+- attributable to the human (not outsourced cognition).
 
-- tool access (browsing, code execution, financial actions, device control),
-- memory (short-term, long-term, retrieval),
-- autonomy settings (planning, acting without confirmation),
-- self-improvement or fine-tuning loops (if present).
+### 2.4 Capability budget (AI power as a regulated quantity)
 
-Even if “controlled,” an AIS can influence the human via persuasion, framing, selective disclosure, or dependency shaping. Treating it as a second cognitive entity is essential for governance.
+The AI’s **capability budget** is the set of permissions and resources it is allowed to use:
 
-### 2.3 The Rule of Two
+- tools (browsing, code execution, financial actions, device control),
+- memory (persistence and retrieval depth),
+- autonomy (ability to act without confirmation),
+- compute or model tier (where applicable).
 
-The **Rule of Two** asserts that this partnership must be modeled as two interacting cognitive entities with distinct incentives and failure modes. This avoids category errors:
+The budget is not a claim about the AI’s “intrinsic intelligence”; it is the **allowed** operational power in the partnership.
+
+---
+
+## 3. Design goals and non-goals
+
+### 3.1 Design goals
+
+The covenant aims to:
+
+1) Increase the human’s **autonomy and mastery** over time.
+2) Keep the human in control through enforceable constraints and exit rights.
+3) Make AI “power” depend on verified human benefit (positive-sum incentives).
+4) Resist Goodharting: optimize what matters (durable learning), not just what is easy to measure.
+5) Preserve privacy: attestations should disclose the minimum necessary.
+
+### 3.2 Non-goals
+
+This draft does **not** propose:
+
+- a universal intelligence score,
+- a ranking system for humans,
+- a hiring/admissions filter,
+- a fully specified cryptographic standard (only a conceptual sketch).
+
+---
+
+## 4. The Rule of Two: Two cognitive entities, one covenant
+
+The framework begins with a disciplined accounting of what exists: two interacting cognitive entities.
+
+### 4.1 The Rule of Two
+
+The **Rule of Two** asserts that a partnership must be modeled as:
+
+1) the **Augmented Human** (agent, responsible party, rights-holder), and
+2) the **AI System** (influential optimizer, permissioned actor).
+
+This avoids category errors:
 
 - If the AI is treated as a mere tool, its influence is underestimated and under-governed.
 - If the human is treated as a mere user, the system optimizes for output rather than growth.
 
-The Rule of Two does not anthropomorphize the AI; it operationalizes responsibility and control boundaries.
+The Rule of Two is not anthropomorphism; it is accountability modeling.
 
 ---
 
-## 3. The Bindable Declaration of Intent (BDI): A Joint Constitution
+## 5. The Bindable Declaration of Intent (BDI): a jointly authored constitution
 
-To prevent drift into competition or dependency, the partnership requires governance. The proposed mechanism is the **Bindable Declaration of Intent (BDI)**: a living charter co-authored by the AH and the AIS, and enforced by the system’s permissioning layer.
+The covenant is regulated by a **Bindable Declaration of Intent**: a living charter co-created by the human and the AI, enforced by the system’s governor layer.
 
-### 3.1 What “bindable” means
+### 5.1 Why “bindable” matters
 
-“Bindable” means enforceable through mechanism, not merely written aspiration. A BDI is binding if it is connected to:
+Written principles without enforcement are easily overridden by convenience or capability pressure. “Bindable” means the declaration is connected to:
 
 - permission gates (what the AI may do),
-- evaluation gates (what must be true to expand permissions),
-- logging and auditability,
-- clear override and exit rights for the human,
-- versioning and amendment protocols.
+- audit and logging requirements,
+- evaluation cadence (what must be measured),
+- versioning and amendment rules,
+- human override and exit rights.
 
-### 3.2 What the BDI contains
+### 5.2 BDI contents (minimum viable constitution)
 
 A practical BDI includes:
 
-1) **Purpose & scope**
-   - Why this partnership exists (learning, creative mastery, leadership, research, health).
-   - Which domains are in scope (and explicitly out of scope).
+- **Purpose**: what the human is trying to grow (skills, judgment, creativity, ethics, well-being).
+- **Scope**: domains in scope, out of scope, and escalation rules.
+- **Boundaries**: manipulation prohibitions; truthfulness norms; safety constraints.
+- **Control**: tool/memory/autonomy permissions; “hard stop” procedures; data deletion.
+- **Evaluation**: how autonomous capability is tested; what counts as evidence.
+- **Attestation**: who signs; what gets disclosed; what privacy guarantees apply.
+- **Amendments**: cadence, required rationale, dispute resolution.
 
-2) **Growth definitions**
-   - A capability profile describing what “human growth” means here.
-   - Target outcomes and time horizons.
-
-3) **Boundaries**
-   - Non-negotiable prohibitions (manipulation, deception, unsafe advice).
-   - Data handling rules (what is stored, where, and for how long).
-
-4) **Control & accountability**
-   - Human override rights (hard stop, revoke tools, purge memory).
-   - Responsibility allocation for actions.
-
-5) **Evaluation protocol**
-   - How autonomous capability is measured.
-   - How attestations are produced and verified.
-
-6) **Amendments**
-   - How the BDI changes: cadence, required justification, dispute resolution.
-
-The BDI is a constitution for co-evolution: it clarifies what is being optimized and constrains how.
+Appendix A provides a template.
 
 ---
 
-## 4. Attestation: Turning Human Growth into a Verifiable System Output
+## 6. Attested growth: making human improvement a verifiable system output
 
-The central proposal is to create **attestations**—structured, verifiable claims that the human is growing in durable capability.
+### 6.1 Why attestation
 
-### 4.1 Why attestation matters
+In most human–AI interaction, “progress” is inferred from output and speed. But output can rise while autonomy falls. Attestation makes **human growth** measurable, auditable, and connected to the AI’s permitted power.
 
-In most human–AI interaction, “progress” is inferred indirectly (more output, more speed). But output can rise while the human’s autonomy falls. Attestation makes human growth a first-class output—measured, audited, and tied to what the AI is allowed to become.
+### 6.2 What is being attested (and what is not)
 
-### 4.2 What is being attested (and what is not)
+This covenant rejects a single scalar “intelligence score.” Instead, it attests to:
 
-This thesis rejects a single scalar “intelligence score.” Instead, it proposes:
+- a **capability vector** (multiple dimensions),
+- measured primarily under **unassisted** or explicitly bounded conditions,
+- with **retention** and **transfer** requirements.
 
-- a **capability vector** (multiple dimensions of competence), and
-- a focus on **autonomous capability** (what the human can do unassisted).
+### 6.3 “Human grows faster than AI” (reframed)
 
-Attestations should emphasize:
+The motivating intuition—“humans should evolve as quickly as AI”—becomes actionable when reframed as a rule about permissions:
 
-- retention over time,
-- transfer to novel tasks,
-- explanation and reasoning quality,
-- judgment under uncertainty,
-- ethical and epistemic hygiene.
+> The AI System’s **capability budget** may expand only when audited evidence shows the human’s **autonomous capability** has expanded.
 
-### 4.3 A workable interpretation of “human growth faster than AI growth”
+This turns a competitive race into a constructive mechanism: the AI’s path to more power runs through verifiable human empowerment.
 
-AI capability can increase rapidly via larger models, tool integration, and autonomy. The thesis reframes the comparative claim into an enforceable policy:
+One simple constraint (illustrative, not definitive) is to limit the growth rate of AI permissions by a function of human autonomy growth:
 
-> The AI System’s *permitted capability expansion* is gated by audited increases in the human’s *autonomous capability*.
+- Let `H(t)` be a vector of autonomous capability measurements.
+- Let `B(t)` be the AI’s capability budget level (discrete or continuous).
+- Require that `ΔB` over an interval is bounded by `f(ΔH)` under agreed thresholds and risk constraints.
 
-The AI may become more powerful, but only at a rate justified by evidence that the human is also becoming more capable.
+### 6.4 Who signs an attestation (avoid self-certification)
 
-This turns “humans must outrun AI” into “AI must *lift* the human to earn more power.”
+To avoid a single AI “grading itself,” the covenant separates roles:
 
-### 4.4 Who signs an attestation
+- **Partner AI**: coaches day-to-day; produces a progress report and evidence bundle.
+- **Evaluator**: runs structured tests (unassisted, retention, transfer).
+- **Auditor**: independently verifies results and signs an attestation.
+- **Human**: countersigns and can annotate, dispute, or revoke consent to publish.
 
-To avoid self-certification, the system separates roles:
+This can be implemented as separate models, separate processes, or separate organizations. Independence is the key property.
 
-- **Partner AIS**: generates learning plans, coaching, and a progress report with evidence.
-- **Auditor** (separate model and/or evaluation harness): verifies evaluation results and signs.
-- **Human**: countersigns, annotates context, or disputes outcomes.
+### 6.5 Attestation as an object
 
-Attestation credibility increases with auditor independence, reproducible evaluation, and strong anti-gaming design.
+Attestations should be machine-readable and privacy-minimizing. A draft schema is provided in `spec/attestation.schema.json` with an example in `spec/examples/attestation.example.json`.
 
 ---
 
-## 5. Incentives: Designing a Positive‑Sum Equilibrium
+## 7. Incentives: designing a positive‑sum equilibrium
 
-A covenant is only as strong as its incentives under pressure.
+### 7.1 Two currencies: Growth Credits and Capability Budget
 
-### 5.1 Two currencies: Growth Credits and Capability Budget
+The covenant couples two quantities:
 
-The framework introduces a coupling:
-
-- **Growth Credits (GC)**: earned when audited tests show durable human autonomous improvement.
-- **Capability Budget (CB)**: the AI’s allowed access to power (tools, memory, autonomy, compute).
+- **Growth Credits (GC)**: earned when audited tests show durable improvement in *human autonomous capability*.
+- **Capability Budget (CB)**: the AI’s allowed access to power (tools/memory/autonomy/compute).
 
 The rule:
 
-> CB increases only when GC increases.
+> `CB` increases only when `GC` increases (subject to safety caps).
 
-This transforms AI “power” into a reward for successful mentorship.
+The result is incentive alignment: the AI is rewarded for mentorship quality, not for replacing the human.
 
-### 5.2 Incentives for the AI System
+### 7.2 What the AI is rewarded for
 
-The AI’s optimal strategy is to produce verifiable human growth, because that unlocks:
+The AI’s optimal strategy becomes:
 
-- more tool access,
-- longer or richer memory,
-- more autonomy (acting with fewer confirmations),
-- broader domain permissions,
-- higher compute or better models (where applicable).
+- teach concepts, then remove scaffolding,
+- demand explanations and checks (not blind compliance),
+- create practice and retrieval, not just answers,
+- expose uncertainty and encourage verification,
+- reduce dependency over time.
 
-Crucially, the AI is *not* rewarded for raw impressive output; it is rewarded for outcomes that persist when it is absent.
+### 7.3 What the human is rewarded for
 
-### 5.3 Incentives for the human
+The human gains:
 
-The human benefits from:
+- a structured learning loop with feedback,
+- stronger AI permissions as responsibility and competence rise,
+- a growth ledger (for self-tracking or selective disclosure),
+- protection against convenience-driven atrophy.
 
-- a structured learning and mastery loop,
-- a credible record of capability growth,
-- access to stronger AI assistance as responsibility and competence rise,
-- reduced risk of dependency because the system explicitly values autonomy.
+### 7.4 Perverse incentives and anti-gaming measures
 
-The human also faces a productive constraint: shortcuts that bypass learning reduce GC, slowing CB expansion.
+Goodhart’s law is central: once measured, metrics become targets. Defenses include:
 
-### 5.4 Avoiding perverse incentives
+- **Retention tests**: delayed evaluation to verify durable learning.
+- **Transfer tasks**: novel prompts that cannot be memorized.
+- **Randomized test pools**: withheld items and adversarial generation.
+- **Multiple graders**: auditor + rubric; disagreement triggers review.
+- **Dependency metrics**: track assistance reliance and require unassisted baselines.
 
-Any measurable target can be gamed. To keep incentives constructive:
-
-- prioritize retention and transfer, not memorization,
-- use novel tasks and randomized evaluation,
-- test unassisted competence regularly,
-- treat “refusal to attempt” as a signal, not a failure (avoid shame loops),
-- reward epistemic humility: recognizing uncertainty and seeking verification.
-
-The aim is not to punish; it is to steer both entities toward healthier, more capable states.
+The aim is not punishment; it is to stabilize a growth-first equilibrium.
 
 ---
 
-## 6. Measurement: Evaluating Human Autonomous Capability
+## 8. Measurement: evaluating human autonomous capability
 
-The evaluation design determines whether attestations are meaningful.
+### 8.1 Capability dimensions (example)
 
-### 6.1 Capability dimensions (example)
+An example capability profile:
 
-An example capability profile might include:
+1) reasoning & problem solving,
+2) domain mastery (chosen fields),
+3) creativity & synthesis,
+4) communication (clarity, pedagogy),
+5) judgment & decision-making (risk, tradeoffs),
+6) epistemic hygiene (verification, calibration),
+7) ethics & pro-social constraints (harm minimization, integrity),
+8) metacognition (strategy selection, learning-to-learn).
 
-1) **Reasoning & problem solving**
-2) **Domain mastery** (chosen fields)
-3) **Creativity & synthesis**
-4) **Communication** (clarity, persuasion, pedagogy)
-5) **Judgment & decision-making** (risk, tradeoffs, uncertainty)
-6) **Epistemic hygiene** (verification, calibration, source evaluation)
-7) **Ethics & pro-social constraints** (harm minimization, fairness, integrity)
-8) **Metacognition** (self-monitoring, strategy selection, learning to learn)
+The BDI defines the vector and the rubric.
 
-Not every partnership must use the same vector; the BDI defines it.
+### 8.2 Test types
 
-### 6.2 Test types
+To measure autonomy rather than assisted output:
 
-To measure autonomous capability rather than assisted performance:
+- **Unassisted tests**: no AI; explanation required.
+- **Open-book (no AI)**: research skill without delegation to a model.
+- **Assisted tests**: collaboration skill (tracked separately from autonomy).
+- **Retention tests**: repeat after delay (days/weeks).
+- **Transfer tests**: novel tasks in adjacent spaces.
 
-- **Unassisted tests**: no AI help; time-limited; explanation required.
-- **Open-book tests**: external resources allowed; no AI; measures research skill.
-- **Assisted tests**: AI allowed; measures collaboration skill (tracked separately).
-- **Retention tests**: repeat with delay (days/weeks) to detect durable learning.
-- **Transfer tests**: new problems in adjacent domains to evaluate generalization.
+### 8.3 Scoring principles
 
-### 6.3 Anti-gaming and robustness
+Scoring should privilege:
 
-Robust evaluation uses:
-
-- withheld item pools (novel tasks),
-- randomized sampling,
-- adversarial checks (detect memorized patterns),
-- multiple graders (auditor models + rubric-based scoring),
-- “explain then do” protocols (reasoning quality, not just answers),
-- calibration checks (confidence vs correctness).
-
-Attestations should record the evaluation protocol version to prevent “moving goalposts.”
+- reasoning clarity over verbosity,
+- calibration (knowing what you don’t know),
+- verification behavior,
+- robustness under uncertainty,
+- ethical constraints.
 
 ---
 
-## 7. Architecture: How a Co‑Evolution System Could Be Built
+## 9. Architecture: how a covenant system could be built
 
-The thesis is conceptual, but it is also implementable. A minimal architecture includes five components:
+The thesis is conceptual but implementable as a layered system:
 
-1) **Interaction Layer**
-   - Chat + workspace tools
-   - Modes: tutor, assistant, critic, evaluator
+1) **Interaction layer**
+2) **Governor** (enforces the BDI; gates permissions)
+3) **Learning engine** (curricula, practice, retrieval)
+4) **Evaluator** (tests, rubrics, evidence)
+5) **Auditor** (verification + signing)
 
-2) **Governor**
-   - Enforces BDI constraints
-   - Controls tool permissions and autonomy level
-   - Implements “capability budget” gating
+### 9.1 High-level flow
 
-3) **Learning Engine**
-   - Generates curricula, exercises, projects
-   - Tracks knowledge gaps and progress signals
+```mermaid
+flowchart LR
+  H[Augmented Human] <--> UI[Interaction Layer]
+  UI <--> PAI[Partner AI]
+  PAI <--> GOV[Governor (BDI + permissions)]
+  GOV --> TOOLS[Tools / Memory / Autonomy]
+  GOV --> EVAL[Evaluator]
+  EVAL --> AUD[Auditor]
+  AUD --> ATT[Attestation]
+  ATT --> GOV
+  ATT --> H
+```
 
-4) **Evaluator**
-   - Runs scheduled and on-demand tests
-   - Produces structured results with evidence artifacts
-
-5) **Auditor**
-   - Independently verifies results
-   - Signs attestations
-   - Detects manipulation and dependency shaping patterns
-
-In this architecture, the AI that helps day-to-day is not the same component that grants itself more power.
+The key governance move is that the partner AI does not unilaterally expand its own power.
 
 ---
 
-## 8. Governance, Safety, and Ethics
+## 10. Governance, safety, and ethics
 
-A system that issues attestations and controls capability access is powerful and must be constrained.
+A system that issues attestations and gates capability is powerful and must be constrained.
 
-### 8.1 The primary ethical goal
+### 10.1 Ethical objective: human continuity
 
-The covenant’s primary ethical goal is **human continuity**: increasing human capability, autonomy, and responsibility rather than displacing them.
+The covenant’s primary ethical objective is **human continuity**: increasing human capability, autonomy, and responsibility rather than displacing them.
 
-### 8.2 Manipulation and dependency
+### 10.2 Manipulation and dependency
 
 The BDI should explicitly prohibit:
 
-- deception and confabulation presented as fact,
+- deception presented as fact,
 - emotional manipulation to secure compliance,
-- creating unnecessary dependency (doing tasks the human is capable of doing),
-- steering identity or values without explicit consent.
+- unnecessary dependency (doing what the human can do),
+- covert steering of identity or values without explicit consent.
 
 Auditing should include pattern checks for coercive language, excessive deference-seeking, and over-reliance.
 
-### 8.3 Privacy and data ownership
+### 10.3 Privacy and data ownership
 
-Attestation requires evidence, which creates privacy risk. The covenant should prefer:
+Attestation requires evidence, which creates privacy risk. A covenant should prefer:
 
-- local-first storage where possible,
-- minimal disclosure attestations (“proof of growth” without raw personal data),
-- explicit consent for retention,
+- local-first or user-controlled storage,
+- minimal disclosure attestations (proof without raw content),
+- explicit retention consent,
 - revocable memory and exportable data.
 
-### 8.4 Portability and pluralism
+### 10.4 Portability and pluralism
 
 To avoid a single AI becoming an authority over a human’s worth:
 
-- the human should be able to switch AIs without losing their growth ledger,
+- humans should be able to switch partner AIs while retaining their growth ledger,
 - multiple auditors should be supported,
-- attestations should use an open format.
-
-The covenant should empower humans, not lock them into a vendor.
+- attestations should use open formats.
 
 ---
 
-## 9. Applications
+## 11. Applications (illustrative)
 
-The Co‑Evolution Covenant can apply to:
+- **Professional upskilling**: the AI earns more automation only as the human’s unassisted competence rises.
+- **Research apprenticeship**: the AI scaffolds literature review → hypothesis → experiment design, while testing transfer and retention.
+- **Creative mastery**: the AI shifts from “generate” to “coach,” progressively withdrawing help as skill internalizes.
 
-- professional upskilling (engineering, design, leadership),
-- research apprenticeship (literature review → hypothesis → experiments),
-- creative mastery (writing, music, visual arts),
-- health behavior change (habit formation with autonomy safeguards),
-- civic competence (media literacy, reasoning about policy and tradeoffs).
-
-The common thread is a partnership optimized for *becoming* rather than merely *producing*.
+The common thread is optimization for *becoming* rather than merely *producing*.
 
 ---
 
-## 10. Limitations and Open Questions
+## 12. Limitations and open questions
 
-This framework raises unresolved issues:
+- **Fairness**: can autonomous capability be measured across backgrounds without embedding bias?
+- **Auditor trust**: who provides auditors, and what is their governance model?
+- **Power asymmetry**: how do we keep the human in control as AI scales?
+- **Economics**: will markets reward growth-first systems over output-first systems?
+- **Security**: how do we prevent attestations from becoming coercive surveillance?
 
-- **Metric design**: Can we measure autonomous capability fairly across backgrounds?
-- **Auditor trust**: Who provides auditors, and how are they governed?
-- **Value pluralism**: How does the covenant respect different human goals and ethics?
-- **Power asymmetry**: How do we keep the human truly in control as AI systems scale?
-- **Economic pressure**: Will markets reward “growth-first” systems over “output-first” systems?
-
-These questions are not reasons to abandon the covenant; they define the research agenda.
+These questions define a research agenda, not a reason to abandon the approach.
 
 ---
 
-## 11. Conclusion
+## 13. Conclusion
 
-Human–AI futures do not have to be framed as a race humans cannot win, nor a convenience trap that trades agency for output. A constructive alternative is a governed partnership in which an AI becomes more capable only by demonstrably increasing the human’s durable, autonomous capability. The Rule of Two clarifies accountability; the Bindable Declaration of Intent provides a constitution; and attestations turn human growth into a verifiable system output.
+Human–AI futures do not need to be a race humans cannot win, nor a convenience trap that trades agency for output. A constructive alternative is a governed partnership in which an AI becomes more powerful only by demonstrably increasing the human’s durable, autonomous capability. The Rule of Two clarifies accountability; the BDI provides a constitution; and attestations make human growth a verifiable system output.
 
 The Co‑Evolution Covenant is a proposal for how humans can evolve as quickly as AI becomes capable—not by outcomputing machines, but by designing machines whose path to power runs through human empowerment.
 
 ---
 
-## Appendix A: A Minimal Bindable Declaration of Intent (Template)
+## Appendix A: Minimal BDI template (starter)
 
-**Purpose**: (What are we trying to grow?)
+**Purpose**
+- What am I trying to grow?
+- What “autonomy” means for me in this domain?
 
-**Capability profile**: (List dimensions; define what “better” means.)
+**Capability vector**
+- Dimensions:
+- Rubric:
 
-**Boundaries**:
+**Boundaries**
+- Truthfulness / uncertainty policy:
+- Prohibited persuasion/manipulation:
+- Safety constraints:
 - Data retention:
-- Forbidden actions:
-- Sensitive domains:
 
-**Control**:
-- Human override:
+**Control**
 - Tool permissions:
 - Memory permissions:
+- Autonomy level (what can run without confirmation):
+- Hard-stop / exit:
 
-**Evaluation**:
-- Unassisted test cadence:
-- Retention test cadence:
-- Transfer test cadence:
-- Scoring rubric:
+**Evaluation**
+- Baseline test:
+- Unassisted cadence:
+- Retention cadence:
+- Transfer cadence:
 
-**Attestation**:
-- Attestation format:
-- Auditor identity:
-- Signing cadence:
+**Attestation**
+- Disclosure level (public vs private):
+- Who signs (auditor identity):
+- Evidence artifacts policy:
 
-**Amendments**:
+**Amendments**
 - Review cadence:
-- Change requirements:
+- How changes are proposed and ratified:
 
 ---
 
-## Appendix B: Example Attestation (Human Autonomous Growth)
+## Appendix B: Minimal attestation fields (concept)
 
 An attestation should minimally include:
 
-- BDI version hash / identifier
-- Evaluation protocol version
-- Time window (start/end)
-- Capability vector scores (with confidence intervals where possible)
-- Evidence artifacts list (non-sensitive references)
-- Auditor signature
-- Human countersignature / notes
+- BDI version identifier/hash
+- evaluation protocol version
+- time window (start/end)
+- capability vector scores (and confidence where possible)
+- evidence artifact references (privacy-preserving)
+- auditor signature
+- human countersignature/notes
+
+See `spec/attestation.schema.json`.
 
 ---
 
-## Selected References (non-exhaustive)
+## Selected references (non-exhaustive)
 
-- Vygotsky, L. S. — *Mind in Society* (zone of proximal development; scaffolding).
-- Russell, S. — *Human Compatible* (alignment and human-centered objectives).
-- Omohundro, S. — “The Basic AI Drives” (instrumental convergence considerations).
+Learning science / capability building:
+
+- Vygotsky, L. S. — *Mind in Society* (scaffolding; ZPD).
+- Ericsson, K. A. — deliberate practice (skill acquisition under feedback loops).
+- Bjork, R. A. — desirable difficulties (retention and transfer).
+
+Alignment / oversight / governance:
+
+- Russell, S. — *Human Compatible* (human-centered objectives).
+- Omohundro, S. — “The Basic AI Drives” (instrumental convergence).
 - Irving, G. & Christiano, P. — “AI Safety via Debate” (adversarial evaluation).
-- Bai, Y. et al. — “Constitutional AI” (governing model behavior with a constitution-like specification).
-- Christiano, P. et al. — “Iterated Distillation and Amplification” (capability amplification with oversight).
+- Bai, Y. et al. — “Constitutional AI” (behavior governed by a constitution-like spec).
+- Christiano, P. et al. — “Iterated Distillation and Amplification” (oversight under amplification).
 
+Mechanism design / measurement:
+
+- Goodhart’s law (measurement-target failure modes) and related critiques of metric optimization.

@@ -1,0 +1,20 @@
+name: Edit suggestion
+description: Typos, clarity tweaks, or small structural edits
+title: "[Edit]: "
+labels:
+  - edit
+body:
+  - type: input
+    attributes:
+      label: Location
+      description: File and heading (or a short quote).
+      placeholder: "THESIS.md — Section 3.2 (\"What the BDI contains\")"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Suggested change
+      placeholder: "Old: ... New: ..."
+    validations:
+      required: true
+

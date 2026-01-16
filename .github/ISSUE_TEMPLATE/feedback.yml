@@ -1,0 +1,27 @@
+name: Feedback / critique
+description: Conceptual critique, missing pieces, incentives, failure modes
+title: "[Feedback]: "
+labels:
+  - feedback
+body:
+  - type: textarea
+    attributes:
+      label: What should change?
+      description: Be specific about the section(s) and the problem.
+      placeholder: "Example: Section 5 incentives can be gamed by X; propose adding Y guardrail..."
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Proposed fix (optional)
+      description: Suggested wording, structure, or references.
+      placeholder: "Suggested edit / outline / citations..."
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: References (optional)
+      description: Author + title + year + link if possible.
+    validations:
+      required: false
+
