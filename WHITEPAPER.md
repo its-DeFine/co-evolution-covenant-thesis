@@ -29,7 +29,7 @@ The aim is not a universal “intelligence score,” but a practical governance 
 ### The problem
 
 If AI makes output easy, humans may become less capable over time: skills decay through disuse, judgment is outsourced, and decision‑making drifts from “I decide” to “the system decides and I accept.” This is a predictable failure mode of automation and cognitive offloading, not a moral flaw.
-See: automation misuse/overreliance (Parasuraman & Riley, 1997) and cognitive offloading effects (Sparrow et al., 2011).
+See: automation misuse/overreliance and appropriate reliance (Parasuraman & Riley, 1997; Lee & See, 2004; Parasuraman & Manzey, 2010; Skitka et al., 1999) and cognitive offloading (Sparrow et al., 2011; Risko & Gilbert, 2016).
 
 ### Design goals
 
@@ -37,7 +37,7 @@ A covenant system should:
 
 - measurably increase **human autonomous capability** over time,
 - keep responsibility boundaries explicit (two entities, one governance layer),
-- resist Goodharting by privileging retention and transfer over one‑shot performance (Goodhart, 1975; Campbell, 1976),
+- resist Goodharting by privileging retention and transfer over one‑shot performance (Holmström & Milgrom, 1991; Courty & Marschke, 2004; Bevan & Hood, 2006),
 - support privacy‑preserving and selective disclosure,
 - include explicit misuse constraints (e.g., not a hiring filter).
 
@@ -218,7 +218,7 @@ Implementation-oriented docs:
 - `evaluation/protocol.md`
 - `evaluation/rubric.md`
 
-Research background: retrieval practice (Roediger & Karpicke, 2006), “desirable difficulties” (Bjork & Bjork, 2011), and deliberate practice (Ericsson et al., 1993). See `REFERENCES.md`.
+Research background: retrieval practice and test‑enhanced learning (Roediger & Karpicke, 2006), spacing effects (Cepeda et al., 2006), effective learning techniques review (Dunlosky et al., 2013), deliberate practice (Ericsson et al., 1993), and transfer taxonomy (Barnett & Ceci, 2002). See `REFERENCES.md`.
 
 ---
 
