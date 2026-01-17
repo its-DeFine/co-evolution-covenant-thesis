@@ -6,8 +6,10 @@ This bibliography is intentionally strict: sources are either peer‑reviewed (j
 
 - Barnett, S. M., & Ceci, S. J. (2002). *When and where do we apply what we learn?: A taxonomy for far transfer.* *Psychological Bulletin*, 128(4), 612–637. https://doi.org/10.1037/0033-2909.128.4.612
 - Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T., & Rohrer, D. (2006). *Distributed practice in verbal recall tasks: A review and quantitative synthesis.* *Psychological Bulletin*, 132(3), 354–380. https://doi.org/10.1037/0033-2909.132.3.354
+- Chi, M. T. H., Bassok, M., Lewis, M. W., Reimann, P., & Glaser, R. (1989). *Self‑explanations: How students study and use examples in learning to solve problems.* *Cognitive Science*, 13(2), 145–182. <https://doi.org/10.1016/0364-0213(89)90002-5>
 - Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., & Willingham, D. T. (2013). *Improving students’ learning with effective learning techniques: Promising directions from cognitive and educational psychology.* *Psychological Science in the Public Interest*, 14(1), 4–58. https://doi.org/10.1177/1529100612453266
 - Ericsson, K. A., Krampe, R. T., & Tesch‑Römer, C. (1993). *The role of deliberate practice in the acquisition of expert performance.* *Psychological Review*, 100(3), 363–406. https://doi.org/10.1037/0033-295X.100.3.363
+- Moore, D. A., & Healy, P. J. (2008). *The trouble with overconfidence.* *Psychological Review*, 115(2), 502–517. https://doi.org/10.1037/0033-295X.115.2.502
 - Roediger, H. L., & Karpicke, J. D. (2006). *Test‑enhanced learning: Taking memory tests improves long‑term retention.* *Psychological Science*, 17(3), 249–255. https://doi.org/10.1111/j.1467-9280.2006.01693.x
 
 ## Human–AI interaction, automation, and cognitive offloading

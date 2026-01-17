@@ -113,3 +113,4 @@ If you compute “growth credits,” require:
 
 Treat assisted performance as diagnostic, not as a basis for autonomy attestations.
 
+Research anchors: testing effects support retention checks (Roediger & Karpicke, 2006), spacing effects motivate delayed evaluation design (Cepeda et al., 2006), and transfer evaluation is its own well‑studied challenge (Barnett & Ceci, 2002). Calibration/overconfidence is also a known failure mode when using confidence scores (Moore & Healy, 2008). See `REFERENCES.md`.
