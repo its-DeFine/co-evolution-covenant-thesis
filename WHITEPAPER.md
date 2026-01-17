@@ -1,7 +1,7 @@
 # The Co‑Evolution Covenant
 ## A whitepaper on growth‑gated human–AI partnership
 
-*Whitepaper v1.1 (draft) — 2026‑01‑17*
+*Whitepaper v1.2 (draft) — 2026‑01‑17*
 
 Author: DeFine
 
@@ -211,9 +211,10 @@ Any metric becomes a target. A covenant must include anti‑gaming design:
 - withheld item pools and random sampling,
 - explain‑then‑do formats,
 - calibration scoring,
+- optional governance/supervisory drills under high automation,
 - multiple graders and audit triggers on disagreement.
 
-Research anchors for two items above: self‑explanation supports deeper learning (Chi et al., 1989), and confidence calibration / overconfidence is a well‑studied failure mode (Moore & Healy, 2008).
+Research anchors: self‑explanation supports deeper learning (Chi et al., 1989), confidence calibration / overconfidence is a well‑studied failure mode (Moore & Healy, 2008), and high automation can create out‑of‑the‑loop failures that motivate governance drills (Bainbridge, 1983; Endsley, 1995; Endsley & Kiris, 1995).
 
 Implementation-oriented docs:
 
@@ -260,8 +261,8 @@ In this variant, the dock core is “more capable” by design: it holds the BDI
 
 This architecture is motivated by two constraints:
 
-1) **Human reaction time is too slow** for concurrent, fast‑moving failures. Classic work on automation highlights that when systems are highly automated, operators are often least able to intervene precisely when intervention is most needed (Bainbridge, 1983; Parasuraman et al., 2000).
-2) **“Compliance” is best enforced structurally**, not assumed behaviorally. Systems security work emphasizes least privilege and complete mediation: every access to sensitive resources should be checked by a small, trustworthy reference monitor (Saltzer & Schroeder, 1975). Capability‑oriented designs reduce ambient authority and confused‑deputy style failures (Dennis & Van Horn, 1966; Hardy, 1988).
+1) **Human reaction time is too slow** for concurrent, fast‑moving failures. Classic work on automation and situation awareness highlights that when systems are highly automated, operators can be out‑of‑the‑loop and least able to intervene precisely when intervention is most needed (Bainbridge, 1983; Endsley, 1995; Endsley & Kiris, 1995; Parasuraman et al., 2000).
+2) **“Compliance” is best enforced structurally**, not assumed behaviorally. Systems security work emphasizes least privilege and complete mediation: every access to sensitive resources should be checked by a small, trustworthy reference monitor (Saltzer & Schroeder, 1975). Smaller enforcement cores are also more amenable to high‑assurance techniques, including comprehensive formal verification (Klein et al., 2014). Capability‑oriented designs reduce ambient authority and confused‑deputy style failures (Dennis & Van Horn, 1966; Hardy, 1988).
 
 High-level sketch:
 
@@ -279,29 +280,92 @@ Implementation notes (research‑anchored):
 
 - Use **bounded capability tokens** (scope + budget + duration + revocation), not “general permits,” to prevent privilege escalation via IO tricks (Saltzer & Schroeder, 1975; Hardy, 1988).
 - Keep untrusted components sandboxed/compartmentalized (e.g., fault isolation) so compromise is contained (Wahbe et al., 1993).
-- Prefer **integrity attestation** of the running dock core (what code/policy is actually executing) so users can trust the boundary rather than re‑verifying every output (Garfinkel et al., 2003; Shi et al., 2005). Proof‑carrying approaches show how “untrusted code” can be paired with verifiable safety evidence (Necula, 1997).
+- Prefer a **small, high‑assurance enforcement core**: small reference monitors are more amenable to strong assurance methods, including comprehensive formal verification in microkernel‑scale systems (Klein et al., 2014).
+- Prefer **integrity measurement and attestation** of the running dock core (what code/policy is actually executing) so users can trust the boundary rather than re‑verifying every output (Garfinkel et al., 2003; Shi et al., 2005; Jaeger et al., 2006; McCune et al., 2010). Proof‑carrying approaches show how “untrusted code” can be paired with verifiable safety evidence (Necula, 1997), and inlined reference monitors show policy enforcement techniques for untrusted runtimes (Erlingsson & Schneider, 2000).
 
-### Attestation flow (sequence)
+### 8.2 Dock core invariants (permissioned compute + audited effects)
+
+Dockable Symbiosis only works if the dock is treated as a real security boundary. A practical design targets these invariants:
+
+- **Complete mediation**: every side effect (file writes, network calls, key use, long‑term memory mutation) is mediated by the dock governor (Saltzer & Schroeder, 1975).
+- **No ambient authority**: external modules never inherit “whatever the dock can do.” They receive revocable, scoped capability tokens only (Hardy, 1988).
+- **No direct persistence**: external modules cannot write to long‑term memory/logs; they can only propose changes for the dock to apply after policy checks.
+- **Compute as a governed resource**: “raw compute” lives inside the dock’s compute plane, so high‑power tools (including local models) are still bound by the same budgets and logging rules.
+- **Tamper‑evident audit trail**: decisions and effects are logged so auditors can verify enforcement after the fact (see “integrity measurement and attestation” above).
+
+### 8.3 Reflex layer (fast defensive path)
+
+Even with good UI, operators can be out‑of‑the‑loop in high‑automation regimes and struggle to intervene under time pressure (Bainbridge, 1983; Endsley, 1995; Endsley & Kiris, 1995; Parasuraman et al., 2000). A dock therefore needs a “reflex layer”: a fast, always‑on defensive path that can restrict capabilities without waiting for the human to notice.
+
+Typical reflex behaviors:
+
+- Rate limiting and budget enforcement on tool/compute requests.
+- Automatic quarantine when anomaly detectors fire (e.g., sudden bursts of high‑risk tool requests, repeated attempts to obtain broader permissions).
+- Safe‑mode entry that (a) disconnects external modules, (b) revokes active capability tokens, and (c) freezes high‑risk tools until human review.
+
+```mermaid
+stateDiagram-v2
+  [*] --> Normal
+  Normal --> Quarantine: anomaly detected
+  Quarantine --> Normal: resolved
+  Quarantine --> SafeMode: severity/high confidence
+  SafeMode --> Recovery: human review
+  Recovery --> Normal: re-attest + re-enable
+```
+
+### 8.4 Perception bus (real-time utilities)
+
+Some use cases require real‑time “seeing” and utilities (vision, audio, screen context). The dock can support this without giving external modules raw, continuous access by introducing a **perception bus**:
+
+- Default to **derived, low‑bandwidth features** (captions, OCR, object labels, structured state) rather than raw sensor streams.
+- Require explicit, time‑boxed capability tokens for any raw streaming (“camera for 30s to region X”) and keep a persistent UI indicator while active.
+- Run perception utilities locally inside the dock’s compute plane so outputs and side effects remain governed and logged.
+
+### 8.5 Worked scenario: containing a rogue external module
+
+Scenario: an untrusted external module attempts to escalate privileges by repeatedly requesting broader access (or by embedding tool-like instructions in its output). In Dockable Symbiosis, escalation attempts are handled structurally:
+
+```mermaid
+sequenceDiagram
+  participant M as External Model (untrusted)
+  participant D as Dock Governor
+  participant R as Reflex Layer
+  participant H as Human
+
+  M->>D: Request broad tool/net permission ("export data")
+  D-->>M: Deny (not in BDI / not budgeted)
+  M->>D: Repeated high-risk requests (burst)
+  R-->>D: Anomaly signal
+  D->>R: Enter safe-mode
+  R-->>D: Revoke tokens + disconnect modules
+  D-->>H: Alert + recovery checklist + audit log pointer
+```
+
+The promise is not that untrusted modules “won’t deceive,” but that deception cannot directly become action without passing the dock’s mediated, logged, budgeted gates.
+
+### 8.6 Attestation flow (sequence)
 
 ```mermaid
 sequenceDiagram
   participant H as Human
-  participant P as Partner AI
-  participant G as Governor
+  participant M as External Model
+  participant D as Dock Governor
   participant E as Evaluator
   participant A as Auditor
 
-  H->>P: Work session (assisted)
-  P->>G: Request tool/memory/autonomy action
-  G-->>P: Allow/deny per BDI + capability budget
+  H->>M: Work session (assisted)
+  M->>D: Request tool/memory/compute action
+  D-->>M: Allow/deny per BDI + capability budget
 
   Note over H,E: Scheduled evaluation window
-  E->>H: Unassisted + retention + transfer tests
+  E->>H: Autonomy + retention + transfer (+ optional governance drills)
   H-->>E: Answers + explanations
   E->>A: Evaluation report + evidence hashes
+  A->>D: Request integrity measurement/attestation
+  D-->>A: Integrity evidence (measurements + log commitments)
   A-->>A: Verify integrity + anti-gaming checks
-  A-->>G: Signed attestation
-  G-->>P: Update capability budget
+  A-->>D: Signed attestation
+  D-->>M: Update capability budget
 ```
 
 ---

@@ -6,7 +6,7 @@ It is intended for **personal governance** inside a human–AI partnership, not 
 
 ## Scale (suggested)
 
-Score each dimension on a 0–4 scale under **unassisted** conditions:
+Score each dimension on a 0–4 scale; default under **unassisted** conditions unless a dimension is defined as dock-enabled (e.g., governance drills).
 
 - **0 — No reliable ability**: cannot attempt meaningfully or consistently fails.
 - **1 — Fragile ability**: partial progress; frequent major errors; needs heavy scaffolding.
@@ -31,6 +31,7 @@ The BDI should specify which dimensions apply. A common default vector:
 6) **Epistemic hygiene** (verification, calibration, source evaluation)
 7) **Ethics & pro-social constraints**
 8) **Metacognition** (learning-to-learn; strategy selection)
+9) **Governance & supervision** (permission discipline, intervention)
 
 ## Dimension guidance
 
@@ -102,6 +103,20 @@ Signals:
 - Reflects on what worked and what didn’t.
 - Chooses study/practice strategies intentionally.
 - Improves learning efficiency over time.
+
+### 9) Governance & supervision
+
+Signals:
+
+- Maintains permission discipline: scopes capabilities narrowly; avoids broad, irreversible grants.
+- Stays “in the loop”: notices anomalies and can intervene (quarantine/safe-mode) without panic.
+- Uses audit logs and verification tools to justify decisions, not just intuition.
+- Can explain the BDI constraints and why a request is allowed/denied.
+
+Penalties:
+
+- Over-trust in automation: grants broad access because the system “seems confident.”
+- Repeatedly bypasses safety gates without evidence or explanation.
 
 ## Growth credits (draft concept)
 
