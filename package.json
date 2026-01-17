@@ -1,0 +1,13 @@
+{
+  "name": "co-evolution-covenant-thesis",
+  "private": true,
+  "description": "Draft thesis + specs on attested human–AI co-evolution",
+  "license": "CC-BY-4.0",
+  "scripts": {
+    "verify:author-proof": "node scripts/verify-author-proof.mjs"
+  },
+  "dependencies": {
+    "ethers": "^6.15.0"
+  }
+}
+
