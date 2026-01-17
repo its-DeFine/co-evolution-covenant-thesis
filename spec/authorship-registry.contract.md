@@ -86,6 +86,7 @@ function registerFor(
   bytes32 artifactHash,
   address author,
   string calldata uri,
+  uint256 deadline,
   bytes calldata signature
 ) external;
 ```
@@ -160,3 +161,9 @@ Rules:
 - **Attestation registry**: store hashes of BDI versions and evaluation protocol versions, and emit events for auditor-signed attestations.
 - **Revocation registry**: allow auditors or authors to revoke compromised keys and rotate to new addresses with an explicit chain of custody.
 
+---
+
+## Reference implementation
+
+- Solidity: `contracts/AuthorshipRegistry.sol` (draft; not audited)
+- Tooling: `foundry.toml` enables `forge build`
