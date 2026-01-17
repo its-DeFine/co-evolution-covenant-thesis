@@ -35,8 +35,10 @@
         }
       }
     },
-    "message": { "type": "string" },
+    "message": {
+      "type": "string",
+      "description": "Signed message. Recommended to include an `Artifacts:` section with lines like `- <path>: sha256=<hex>` so the signature binds to the artifact hashes."
+    },
     "signature": { "type": "string", "description": "EIP-191 personal_sign style signature, 0x-prefixed." }
   }
 }
-

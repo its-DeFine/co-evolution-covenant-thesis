@@ -4,10 +4,10 @@
   "description": "Draft thesis + specs on attested human–AI co-evolution",
   "license": "CC-BY-4.0",
   "scripts": {
+    "generate:author-proof": "node scripts/generate-author-proof.mjs",
     "verify:author-proof": "node scripts/verify-author-proof.mjs"
   },
   "dependencies": {
     "ethers": "^6.15.0"
   }
 }
-
