@@ -18,7 +18,8 @@ Verification options:
 - Etherscan “Verify Signature” tool (paste message + signature + address): https://etherscan.io/verifySig
 - Local verification script:
   - `npm ci`
-  - `npm run verify:author-proof -- --git-ref <commit>`
+  - `npm run verify:author-proof` (defaults to `HEAD`)
+  - optional: `npm run verify:author-proof -- --git-ref <commit>`
 
 ## Specs
 

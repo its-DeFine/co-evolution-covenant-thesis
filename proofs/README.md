@@ -7,5 +7,5 @@ This folder contains signed proof objects (JSON) intended for third-party verifi
 Verification:
 
 - https://etherscan.io/verifySig (manual)
-- `npm run verify:author-proof` (local, recommended)
-
+- `npm ci`
+- `npm run verify:author-proof` (local, recommended; defaults to `HEAD`)

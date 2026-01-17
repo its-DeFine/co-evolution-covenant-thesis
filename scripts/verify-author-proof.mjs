@@ -9,7 +9,8 @@ import { verifyMessage } from "ethers";
 function parseArgs(argv) {
   const args = {
     proofPath: "proofs/author-proof.ethereum.json",
-    gitRef: null,
+    gitRef: "HEAD",
+    worktree: false,
     quiet: false,
   };
 
@@ -23,6 +24,11 @@ function parseArgs(argv) {
       args.gitRef = argv[++i];
       continue;
     }
+    if (token === "--worktree") {
+      args.worktree = true;
+      args.gitRef = null;
+      continue;
+    }
     if (token === "--quiet" || token === "-q") {
       args.quiet = true;
       continue;
@@ -34,7 +40,8 @@ function parseArgs(argv) {
           "",
           "Options:",
           "  --proof <path>     Proof JSON path (default: proofs/author-proof.ethereum.json)",
-          "  --git-ref <ref>    Verify artifacts at a git ref/commit (recommended)",
+          "  --git-ref <ref>    Verify artifacts at a git ref/commit (default: HEAD)",
+          "  --worktree         Verify artifacts from the working tree (not recommended)",
           "  -q, --quiet        Only print errors",
         ].join("\n"),
       );
@@ -115,9 +122,9 @@ function main() {
     console.log("OK: signature and artifact hashes verified");
     console.log(`Address: ${proof.address}`);
     if (args.gitRef) console.log(`Git ref: ${args.gitRef}`);
+    if (args.worktree) console.log("Source: working tree");
     for (const r of results) console.log(`- ${r.artifactPath}: sha256=${r.sha256}`);
   }
 }
 
 main();
-
