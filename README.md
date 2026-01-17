@@ -15,11 +15,14 @@ This repository contains an in-progress thesis draft on a constructive human–A
 Verification options:
 
 - Etherscan “Verify Signature” tool (paste message + signature + address): https://etherscan.io/verifySig
-- Programmatic verification (e.g. `ethers.verifyMessage(message, signature)` should recover the same address)
+- Local verification script:
+  - `npm ci`
+  - `npm run verify:author-proof -- --git-ref <commit>`
 
 ## Specs
 
 - `spec/` — draft JSON schemas and contract notes (implementation-oriented; expected to change)
+- Hashing canonicalization: `spec/hashing.md`
 
 ## Feedback
 
