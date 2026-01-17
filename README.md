@@ -7,6 +7,7 @@ This repository contains an in-progress thesis draft on a constructive human–A
 ## Read
 
 - `THESIS.md` — main draft
+- `evaluation/` — draft evaluation protocol + rubric
 
 ## Proofs
 
