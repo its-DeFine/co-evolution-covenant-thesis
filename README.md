@@ -6,12 +6,14 @@ This repository contains an in-progress thesis draft on a constructive human–A
 
 ## Read
 
-- `THESIS.md` — main draft
+- `WHITEPAPER.md` — public whitepaper draft (start here)
+- `THESIS.md` — longer working draft
 - `evaluation/` — draft evaluation protocol + rubric
+- `REFERENCES.md` — working bibliography
 
 ## Proofs
 
-- `proofs/author-proof.ethereum.json` — signed authorship claim for `THESIS.md` (EIP-191 `personal_sign` style)
+- `proofs/author-proof.ethereum.json` — signed authorship proof for the current whitepaper artifacts (EIP‑191 `personal_sign` style)
 
 Verification options:
 
@@ -20,6 +22,7 @@ Verification options:
   - `npm ci`
   - `npm run verify:author-proof` (defaults to `HEAD`)
   - optional: `npm run verify:author-proof -- --git-ref <commit>`
+- Regenerate proof (authors only; requires signing key): `npm run generate:author-proof`
 
 ## Specs
 

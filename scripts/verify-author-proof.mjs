@@ -57,6 +57,34 @@ function sha256Hex(bytes) {
   return crypto.createHash("sha256").update(bytes).digest("hex");
 }
 
+function extractMessageValue(message, prefix) {
+  const line = message
+    .split("\n")
+    .map((l) => l.trim())
+    .find((l) => l.startsWith(prefix));
+  if (!line) return null;
+  return line.slice(prefix.length).trim();
+}
+
+function parseArtifactsFromMessage(message) {
+  const lines = message.split("\n").map((l) => l.trim());
+  const artifactsStart = lines.findIndex((l) => l === "Artifacts:");
+  if (artifactsStart === -1) return null;
+
+  const artifacts = {};
+  for (let i = artifactsStart + 1; i < lines.length; i++) {
+    const line = lines[i];
+    if (!line.startsWith("- ")) break;
+    const match = line.match(/^- (.+): sha256=([a-f0-9]{64})$/i);
+    if (!match) return null;
+    const artifactPath = match[1];
+    const sha256 = match[2].toLowerCase();
+    artifacts[artifactPath] = { sha256 };
+  }
+
+  return artifacts;
+}
+
 function readArtifactBytesFromGit(ref, artifactPath) {
   const normalizedPath = artifactPath.replaceAll("\\", "/");
   return execFileSync("git", ["show", `${ref}:${normalizedPath}`], {
@@ -80,8 +108,8 @@ function main() {
   const proofRaw = fs.readFileSync(path.resolve(args.proofPath), "utf8");
   const proof = JSON.parse(proofRaw);
 
-  if (!proof?.message || !proof?.signature || !proof?.address) {
-    fail("Invalid proof: missing message/signature/address");
+  if (!proof?.message || !proof?.signature || !proof?.address || !proof?.artifacts) {
+    fail("Invalid proof: missing message/signature/address/artifacts");
   }
 
   const recovered = verifyMessage(proof.message, proof.signature);
@@ -91,10 +119,39 @@ function main() {
     );
   }
 
+  const messageAddress = extractMessageValue(proof.message, "Address:");
+  if (messageAddress && messageAddress.toLowerCase() !== String(proof.address).toLowerCase()) {
+    fail(`Proof message address mismatch. message=${messageAddress} json=${proof.address}`);
+  }
+
   const artifacts = proof.artifacts || {};
   const artifactEntries = Object.entries(artifacts);
   if (artifactEntries.length === 0) {
     fail("Invalid proof: no artifacts");
+  }
+
+  const artifactsFromMessage = parseArtifactsFromMessage(proof.message);
+  if (!artifactsFromMessage) {
+    fail(
+      "Proof message must include an `Artifacts:` section with lines like `- <path>: sha256=<hex>`.",
+    );
+  }
+
+  const artifactsJsonKeys = Object.keys(artifacts).sort();
+  const artifactsMsgKeys = Object.keys(artifactsFromMessage).sort();
+  if (artifactsJsonKeys.join("|") !== artifactsMsgKeys.join("|")) {
+    fail(
+      `Artifact list mismatch between JSON and message. json=[${artifactsJsonKeys.join(
+        ", ",
+      )}] message=[${artifactsMsgKeys.join(", ")}]`,
+    );
+  }
+  for (const key of artifactsJsonKeys) {
+    const jsonSha = String(artifacts[key]?.sha256 || "").toLowerCase();
+    const msgSha = String(artifactsFromMessage[key]?.sha256 || "").toLowerCase();
+    if (!jsonSha || !msgSha || jsonSha !== msgSha) {
+      fail(`Artifact sha256 mismatch between JSON and message for ${key}.`);
+    }
   }
 
   const results = [];
