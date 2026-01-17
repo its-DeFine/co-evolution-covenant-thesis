@@ -102,6 +102,19 @@ An evaluation report should include:
 - notes on major error modes
 - minimal disclosure evidence references (hashes/IDs), not raw private data
 
+## Research anchors (for cited design choices)
+
+This protocol’s design draws on well‑studied effects in learning, metacognition, and human‑automation interaction. See `REFERENCES.md` for full citations:
+
+- Retrieval practice / testing effect (retention): Roediger & Karpicke (2006)
+- Spacing effects (retention across time): Cepeda et al. (2006)
+- Transfer taxonomy (novel tasks): Barnett & Ceci (2002)
+- Self‑explanation (explain‑then‑do): Chi et al. (1989)
+- Calibration and overconfidence: Moore & Healy (2008)
+- Appropriate reliance on automation: Parasuraman & Riley (1997); Lee & See (2004); Parasuraman & Manzey (2010); Skitka et al. (1999)
+- Cognitive offloading (externalizing memory/judgment): Sparrow et al. (2011); Risko & Gilbert (2016)
+- Gaming responses to incentives / performance measures: Holmström & Milgrom (1991); Courty & Marschke (2004); Bevan & Hood (2006)
+
 ## Misuse constraints (hard rules)
 
 This protocol should not be used as:
@@ -111,4 +124,3 @@ This protocol should not be used as:
 - a generalized ranking of humans.
 
 See `DISCLAIMER.md`.
-

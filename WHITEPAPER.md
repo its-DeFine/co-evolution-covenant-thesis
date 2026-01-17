@@ -213,6 +213,8 @@ Any metric becomes a target. A covenant must include anti‑gaming design:
 - calibration scoring,
 - multiple graders and audit triggers on disagreement.
 
+Research anchors for two items above: self‑explanation supports deeper learning (Chi et al., 1989), and confidence calibration / overconfidence is a well‑studied failure mode (Moore & Healy, 2008).
+
 Implementation-oriented docs:
 
 - `evaluation/protocol.md`
