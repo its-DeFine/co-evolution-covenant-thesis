@@ -1,52 +1,60 @@
 # The Co‑Evolution Covenant
-## A whitepaper on attested human growth in human–AI partnerships
+## A whitepaper on growth‑gated human–AI partnership
 
-*Whitepaper v1.0 (draft) — 2026‑01‑17*
+*Whitepaper v1.1 (draft) — 2026‑01‑17*
 
 Author: DeFine
 
-This is conceptual work-in-progress. See `DISCLAIMER.md` and `THREAT_MODEL.md`.
+This is conceptual work‑in‑progress. See `DISCLAIMER.md` and `THREAT_MODEL.md`.
 
 ---
 
 ## Abstract
 
-As AI systems become more capable, human–AI interaction trends toward two unstable equilibria: **competition** (“humans versus AI”) or **dependency** (“AI does everything”). Both reduce human agency. This whitepaper proposes a constructive alternative: a governed co‑evolution partnership in which AI capability is treated as a **permissioned budget** that can expand only when there is audited evidence of **human autonomous capability** growth.
+As AI systems become more capable, human–AI interaction trends toward two unstable equilibria: **competition** (“humans versus AI”) or **dependency** (“AI does everything”). Both reduce human agency. This whitepaper proposes a constructive alternative: a governed co‑evolution partnership in which AI capability is treated as a **permissioned budget** that can expand only when there is audited evidence of **durable human autonomous capability** growth.
 
-The proposal has four core components:
+The covenant’s core components:
 
-1) **Rule of Two**: model the partnership as two cognitive entities—the **Augmented Human** and the **AI System**—to keep responsibility boundaries explicit.
-2) **Bindable Declaration of Intent (BDI)**: a jointly authored “constitution” that is enforced through permissions, logging, and audits.
-3) **Attestations**: structured, privacy-minimizing claims about *durable* human capability growth, signed by separated roles (human + auditor; partner AI optional).
-4) **Incentives**: couple **Growth Credits** (earned via unassisted/retention/transfer evaluation) to an AI **Capability Budget** (tools/memory/autonomy/compute) so the AI’s path to more power runs through verified human empowerment.
+1) **Rule of Two**: model the partnership as two cognitive entities—the **Augmented Human** and the **AI System**—to keep accountability boundaries explicit.
+2) **Bindable Declaration of Intent (BDI)**: a jointly authored “constitution” enforced through permissions, logging, and audits.
+3) **Attestations**: privacy‑minimizing, multi‑party signed claims about durable human capability growth, bound to BDI + evaluation protocol versions.
+4) **Incentives**: couple **Growth Credits** (earned via unassisted/retention/transfer evaluation) to an AI **Capability Budget** (tools/memory/autonomy/compute), so the AI’s path to more power runs through verified human empowerment.
 
-The aim is not to create a universal “intelligence score,” but to provide a practical governance mechanism for safe, positive‑sum human–AI co‑evolution.
+The aim is not a universal “intelligence score,” but a practical governance mechanism for safe, positive‑sum human–AI co‑evolution.
 
 ---
 
-## 1. Executive summary
+## 1. Motivation, goals, and non‑goals
 
 ### The problem
 
-If AI makes output easy, humans may become less capable over time: skills decay through disuse, judgment is outsourced, and agency shifts from “I decide” to “the system decides and I accept.” We need systems that measurably increase human autonomy rather than replace it.
+If AI makes output easy, humans may become less capable over time: skills decay through disuse, judgment is outsourced, and decision‑making drifts from “I decide” to “the system decides and I accept.” This is a predictable failure mode of automation and cognitive offloading, not a moral flaw.
+See: automation misuse/overreliance (Parasuraman & Riley, 1997) and cognitive offloading effects (Sparrow et al., 2011).
 
-### The core move
+### Design goals
 
-Reframe “humans must grow faster than AI” into an enforceable rule:
+A covenant system should:
 
-> The AI System’s permitted capability expansion is gated by audited increases in the human’s autonomous capability.
+- measurably increase **human autonomous capability** over time,
+- keep responsibility boundaries explicit (two entities, one governance layer),
+- resist Goodharting by privileging retention and transfer over one‑shot performance (Goodhart, 1975; Campbell, 1976),
+- support privacy‑preserving and selective disclosure,
+- include explicit misuse constraints (e.g., not a hiring filter).
 
-In other words: AI can get more tools, memory, and autonomy—but only if it can *prove* it is making the human more capable without it.
+### Non‑goals
 
-### What this enables
+This draft does **not** propose:
 
-- Incentives that reward the AI for being a better mentor, not a better replacement.
-- Auditable claims about growth that resist Goodharting through retention/transfer testing.
-- Governance hooks (BDI + governor) that constrain persuasion, dependency shaping, and privacy leakage.
+- a universal intelligence ranking of humans,
+- a credential for HR/admissions/insurance,
+- a psychological assessment,
+- an on‑chain identity system.
+
+See `DISCLAIMER.md`.
 
 ---
 
-## 2. Terms (minimal)
+## 2. Core primitives (minimal)
 
 ### Augmented Human (AH)
 
@@ -54,7 +62,7 @@ The human operating with continuous AI support (planning, critique, tutoring, me
 
 ### AI System (AIS)
 
-The model plus its operational wrapper: tools, memory, autonomy settings, and any self-improvement pipeline.
+The model plus its operational wrapper: tools, memory, autonomy settings, and any self‑improvement pipeline.
 
 ### Human autonomous capability
 
@@ -62,7 +70,7 @@ What the human can do **without** AI assistance (or within strictly bounded “o
 
 ### Capability budget (AI)
 
-The set of permissions/resources the AI is allowed to use in the partnership: tools, memory, autonomy, and (optionally) compute/model tier.
+The permissions/resources the AI is allowed to use in the partnership: tools, memory, autonomy, and (optionally) compute/model tier. This is **allowed power**, not a metaphysical claim about “AI intelligence.”
 
 ---
 
@@ -73,9 +81,9 @@ Treat the system as two cognitive entities:
 1) **Augmented Human** (agent, accountability bearer, override authority)
 2) **AI System** (powerful optimizer that can shape outcomes)
 
-This prevents governance failures caused by category errors:
+This avoids governance failures caused by category errors:
 
-- “The AI is just a tool” (underestimates influence → under-governed).
+- “The AI is just a tool” (underestimates influence → under‑governed).
 - “The human is just a user” (optimizes for output → human atrophy).
 
 ---
@@ -99,56 +107,26 @@ Minimum BDI contents:
 - evaluation + attestation rules,
 - amendments (how the constitution changes).
 
-Template: see Appendix A in `THESIS.md`.
+Schema: `spec/bdi.schema.json`. Template: Appendix A in `THESIS.md`.
 
 ---
 
-## 5. Attestations (what gets proven)
+## 5. Relative‑growth constraint (“humans grow faster than AI”, made enforceable)
 
-Attestations should prove **durable, transferable capability**, not a single “intelligence number.”
+The motivating intuition—“humans should evolve as quickly as AI”—is too vague to enforce if “AI intelligence” is treated as a single number. The covenant reframes it into a concrete constraint on **allowed AI power**.
 
-### 5.1 What is (and isn’t) being attested
+### 5.1 Two coupled quantities
 
-Attestations should emphasize:
-
-- unassisted performance,
-- retention over time,
-- transfer to novel tasks,
-- explanation quality and calibration.
-
-Attestations should *not* become:
-
-- a generalized ranking of humans,
-- an HR filter,
-- a psychological assessment.
-
-See: `DISCLAIMER.md` and `THREAT_MODEL.md`.
-
-### 5.2 Multi-party signing (avoid self-certification)
-
-To avoid an AI “grading itself,” separate roles:
-
-- **Partner AI**: helps day‑to‑day and produces an evidence bundle.
-- **Evaluator**: administers tests (unassisted, retention, transfer).
-- **Auditor**: verifies integrity and signs (or refuses) the attestation.
-- **Human**: countersigns and controls disclosure.
-
-Schemas: `spec/attestation.schema.json`, `spec/bdi.schema.json`.
-
----
-
-## 6. Incentives: Growth Credits ↔ Capability Budget
-
-Couple two quantities:
-
-- **Growth Credits (GC)**: earned via audited evaluation of human autonomous capability.
+- **Growth Credits (GC)**: audited credits earned when evaluations show durable improvement in human autonomous capability.
 - **Capability Budget (CB)**: the AI’s allowed power (tools/memory/autonomy/compute).
 
 Rule (illustrative):
 
 > CB can increase only when GC increases (subject to safety caps).
 
-This makes the AI’s optimal strategy “teach → test → fade scaffolding,” because replacement behavior doesn’t earn budget.
+Equivalent framing:
+
+> The AI can become more powerful *in this partnership* only by making the human more capable without it.
 
 ### Incentive loop (concept)
 
@@ -160,11 +138,73 @@ flowchart LR
   H -->|measured| GC
 ```
 
+### 5.2 A simple budget ladder
+
+```mermaid
+flowchart TD
+  L0[CB0: no tools\nno long-term memory] -->|+GC| L1[CB1: limited memory\nsuggestions only]
+  L1 -->|+GC| L2[CB2: read-only tools\n(browse/search)]
+  L2 -->|+GC| L3[CB3: write tools w/ confirmation\n(code exec, edits)]
+  L3 -->|+GC| L4[CB4: limited autonomy\n(pre-approved actions)]
+```
+
+The ladder is an example: the BDI defines which capabilities matter and which are forbidden regardless of GC.
+
+### 5.3 Anti‑dependency clause (optional)
+
+A covenant may also include a “capability decay” rule:
+
+- if the human’s unassisted performance drops below a threshold, CB freezes or shrinks until recovery.
+
+This makes dependency visible and correctable rather than ignored.
+
+---
+
+## 6. Attestations (what gets proven, by whom, and what is disclosed)
+
+Attestations should prove **durable, transferable capability**, not a single “intelligence number.”
+
+### 6.1 What is (and isn’t) being attested
+
+Emphasize:
+
+- unassisted performance,
+- retention over time,
+- transfer to novel tasks,
+- explanation quality and calibration.
+
+Avoid becoming:
+
+- a generalized ranking of humans,
+- an HR filter,
+- a permanent reputation score that can’t be escaped.
+
+### 6.2 Multi‑party signing (avoid self‑certification)
+
+To avoid an AI “grading itself,” separate roles:
+
+- **Partner AI**: helps day‑to‑day and produces an evidence bundle.
+- **Evaluator**: administers tests (unassisted, retention, transfer).
+- **Auditor**: verifies integrity and signs (or refuses) the attestation.
+- **Human**: countersigns and controls disclosure.
+
+### 6.3 Disclosure layers (privacy‑minimizing)
+
+```mermaid
+flowchart LR
+  P[Private full record\n(raw items + answers)] --> A[Auditor view\n(integrity + scoring)]
+  A --> S[Selective disclosure\n(scores + hashes)]
+  S --> U[Public attestation\n(minimal fields)]
+  U --> O[On-chain anchor\n(hash + URI)]
+```
+
+Schema: `spec/attestation.schema.json` (includes `growth_credits`, `capability_budget`, `disclosure`, `privacy`, optional `anchors`). Example: `spec/examples/attestation.example.json`.
+
 ---
 
 ## 7. Evaluation (how to resist Goodharting)
 
-Any metric becomes a target. A covenant must therefore include anti-gaming design:
+Any metric becomes a target. A covenant must include anti‑gaming design:
 
 - retention tests (delays + isomorphic variants),
 - transfer tests (novel tasks),
@@ -178,7 +218,7 @@ Implementation-oriented docs:
 - `evaluation/protocol.md`
 - `evaluation/rubric.md`
 
-Research background: retrieval practice and “desirable difficulties” in learning science (e.g., Roediger & Karpicke, 2006; Bjork & Bjork, 2011), plus deliberate practice (Ericsson et al., 1993). See `REFERENCES.md`.
+Research background: retrieval practice (Roediger & Karpicke, 2006), “desirable difficulties” (Bjork & Bjork, 2011), and deliberate practice (Ericsson et al., 1993). See `REFERENCES.md`.
 
 ---
 
@@ -236,17 +276,25 @@ sequenceDiagram
 
 This repo includes a minimal “authorship proof” pattern:
 
-- `proofs/author-proof.ethereum.json` signs a message binding an Ethereum address to an artifact hash.
+- `proofs/author-proof.ethereum.json` signs a message binding an Ethereum address to artifact hashes.
 - `scripts/verify-author-proof.mjs` verifies signature + recomputed hashes.
 - `spec/hashing.md` defines canonical bytes + hashing rules.
 
-Draft on-chain anchor spec:
+Optional on-chain anchor:
 
-- `spec/authorship-registry.contract.md`
+- `contracts/AuthorshipRegistry.sol` (reference code) and `spec/authorship-registry.contract.md` (spec).
 
 ---
 
-## 10. Limitations and open questions
+## 10. Roadmap (practical path)
+
+- **Phase 0**: single-user covenant (local logging, self-evaluation, private attestations).
+- **Phase 1**: separated roles (partner AI vs evaluator vs auditor), selective disclosure, dispute process.
+- **Phase 2**: standardized schemas + interoperability (VC-style packaging), stronger privacy primitives (encrypted evidence bundles, commitments, optional ZK proofs).
+
+---
+
+## 11. Limitations and open questions
 
 - Fairness: measuring autonomy across backgrounds without embedding bias.
 - Auditor independence: who runs auditors; how they’re governed and incentivized.

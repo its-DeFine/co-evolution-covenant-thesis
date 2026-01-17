@@ -28,6 +28,7 @@ Verification options:
 
 - `spec/` — draft JSON schemas and contract notes (implementation-oriented; expected to change)
 - Hashing canonicalization: `spec/hashing.md`
+- On-chain anchor reference: `contracts/` (compile with `forge build`)
 
 ## Feedback
 
