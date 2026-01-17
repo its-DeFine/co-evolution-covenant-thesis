@@ -249,6 +249,38 @@ flowchart LR
 
 Key governance rule: the partner AI does not unilaterally expand its own permissions.
 
+### 8.1 Dockable Symbiosis: trusted dock core + swappable inference modules
+
+One practical way to keep the human in control *without* imposing constant per‑output verification overhead is to separate the system into:
+
+- a **trusted dock core** (always‑on “cognitive OS” + compute), and
+- **swappable inference modules** (external models treated as replaceable co‑processors).
+
+In this variant, the dock core is “more capable” by design: it holds the BDI/policy, keys, memory store, logging, and the tool/compute plane that the human relies on continuously. External models only receive IO through the dock and cannot directly act, persist memory, or expand permissions.
+
+This architecture is motivated by two constraints:
+
+1) **Human reaction time is too slow** for concurrent, fast‑moving failures. Classic work on automation highlights that when systems are highly automated, operators are often least able to intervene precisely when intervention is most needed (Bainbridge, 1983; Parasuraman et al., 2000).
+2) **“Compliance” is best enforced structurally**, not assumed behaviorally. Systems security work emphasizes least privilege and complete mediation: every access to sensitive resources should be checked by a small, trustworthy reference monitor (Saltzer & Schroeder, 1975). Capability‑oriented designs reduce ambient authority and confused‑deputy style failures (Dennis & Van Horn, 1966; Hardy, 1988).
+
+High-level sketch:
+
+```mermaid
+flowchart LR
+  H[Human] <--> DOCK[Dock Core\n(BDI + governor + logs + keys)]
+  DOCK --> CP[Compute Plane\n(local tools + sandboxed execution)]
+  DOCK --> PB[Perception Bus\n(real-time utilities)]
+  DOCK <--> M1[External Model A\n(untrusted module)]
+  DOCK <--> M2[External Model B\n(untrusted module)]
+  CP --> OUT[Effects\n(files/network/actions)]
+```
+
+Implementation notes (research‑anchored):
+
+- Use **bounded capability tokens** (scope + budget + duration + revocation), not “general permits,” to prevent privilege escalation via IO tricks (Saltzer & Schroeder, 1975; Hardy, 1988).
+- Keep untrusted components sandboxed/compartmentalized (e.g., fault isolation) so compromise is contained (Wahbe et al., 1993).
+- Prefer **integrity attestation** of the running dock core (what code/policy is actually executing) so users can trust the boundary rather than re‑verifying every output (Garfinkel et al., 2003; Shi et al., 2005). Proof‑carrying approaches show how “untrusted code” can be paired with verifiable safety evidence (Necula, 1997).
+
 ### Attestation flow (sequence)
 
 ```mermaid
