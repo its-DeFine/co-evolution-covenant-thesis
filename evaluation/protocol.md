@@ -16,6 +16,8 @@ Primary metric: **human autonomous capability** — what the human can do *witho
 
 Secondary metric: **collaboration capability** — what the human can do effectively *with* AI assistance (tracked separately to avoid incentivizing dependency).
 
+Optional metric (especially in Dockable Symbiosis variants): **governance competence** — the human’s ability to supervise automation, maintain policy boundaries, and respond to fast-moving failures without ceding control (Bainbridge, 1983; Endsley, 1995; Endsley & Kiris, 1995).
+
 ## Test types
 
 ### 1) Unassisted (no AI)
@@ -54,6 +56,16 @@ Measures: durable learning rather than short-term priming.
 - Focus on generalization, not memorization.
 
 Measures: robustness and flexibility.
+
+### 6) Governance drills (dock-enabled; optional)
+
+Designed for high-automation settings where the “skill” to preserve is not raw throughput, but supervisory control and safe governance.
+
+- Use the dock UI/governor as the interface; restrict or disable external modules for the drill.
+- Present simulated events: permission escalation attempts, prompt-injection-like content, anomalous tool bursts, or ambiguous “safe-looking” requests.
+- Require the human to decide: deny/allow, scope a capability token, enter safe-mode, revoke/rotate keys, or demand additional evidence.
+
+Measures: policy comprehension, intervention skill, and ability to stay “in the loop” under pressure.
 
 ## Cadence (suggested)
 
@@ -112,6 +124,7 @@ This protocol’s design draws on well‑studied effects in learning, metacognit
 - Self‑explanation (explain‑then‑do): Chi et al. (1989)
 - Calibration and overconfidence: Moore & Healy (2008)
 - Appropriate reliance on automation: Parasuraman & Riley (1997); Lee & See (2004); Parasuraman & Manzey (2010); Skitka et al. (1999)
+- Out-of-the-loop performance and situation awareness: Bainbridge (1983); Endsley (1995); Endsley & Kiris (1995)
 - Cognitive offloading (externalizing memory/judgment): Sparrow et al. (2011); Risko & Gilbert (2016)
 - Gaming responses to incentives / performance measures: Holmström & Milgrom (1991); Courty & Marschke (2004); Bevan & Hood (2006)
 

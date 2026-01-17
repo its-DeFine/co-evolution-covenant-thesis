@@ -16,6 +16,8 @@ This bibliography is intentionally strict: sources are either peer‑reviewed (j
 
 - Amershi, S., Weld, D., Vorvoreanu, M., Fourney, A., Nushi, B., Collisson, P., Suh, J., Iqbal, S., Bennett, P. N., Inkpen, K., Teevan, J., Kikin‑Gil, R., & Horvitz, E. (2019). *Guidelines for Human‑AI Interaction.* In *Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems (CHI ’19).* https://doi.org/10.1145/3290605.3300233
 - Bainbridge, L. (1983). *Ironies of automation.* *Automatica*, 19(6), 775–779. <https://doi.org/10.1016/0005-1098(83)90046-8>
+- Endsley, M. R. (1995). *Toward a theory of situation awareness in dynamic systems.* *Human Factors*, 37(1), 32–64. https://doi.org/10.1518/001872095779049543
+- Endsley, M. R., & Kiris, E. O. (1995). *The out-of-the-loop performance problem and level of control in automation.* *Human Factors*, 37(2), 381–394. https://doi.org/10.1518/001872095779064555
 - Kamar, E. (2016). *Directions in Hybrid Intelligence: Complementing AI Systems with Human Intelligence.* In *Proceedings of IJCAI 2016*. https://www.ijcai.org/Proceedings/16/Papers/482.pdf
 - Lee, J. D., & See, K. A. (2004). *Trust in automation: Designing for appropriate reliance.* *Human Factors*, 46(1), 50–80. https://doi.org/10.1518/hfes.46.1.50_30392
 - Licklider, J. C. R. (1960). *Man‑Computer Symbiosis.* *IRE Transactions on Human Factors in Electronics*, HFE‑1(1), 4–11. https://doi.org/10.1109/THFE2.1960.4503259
@@ -35,8 +37,12 @@ This bibliography is intentionally strict: sources are either peer‑reviewed (j
 ## Systems security, capability control, and attestation (background)
 
 - Dennis, J. B., & Van Horn, E. C. (1966). *Programming semantics for multiprogrammed computations.* *Communications of the ACM*, 9(3), 143–155. https://doi.org/10.1145/365230.365252
+- Erlingsson, U., & Schneider, F. B. (2000). *IRM enforcement of Java stack inspection.* In *Proceedings of the 2000 IEEE Symposium on Security and Privacy (S&P 2000).* https://doi.org/10.1109/SECPRI.2000.848461
 - Garfinkel, T., Pfaff, B., Chow, J., Rosenblum, M., & Boneh, D. (2003). *Terra: A virtual machine‑based platform for trusted computing.* In *Proceedings of the 19th ACM Symposium on Operating Systems Principles (SOSP ’03).* https://doi.org/10.1145/945445.945464
 - Hardy, N. (1988). *The Confused Deputy (or why capabilities might have been invented).* *ACM SIGOPS Operating Systems Review*, 22(4), 36–38. https://doi.org/10.1145/54289.871709
+- Jaeger, T., Sailer, R., & Shankar, U. (2006). *PRIMA: Policy-reduced Integrity Measurement Architecture.* In *Proceedings of the eleventh ACM symposium on Access control models and technologies (SACMAT ’06).* https://doi.org/10.1145/1133058.1133063
+- Klein, G., Andronick, J., Elphinstone, K., Murray, T., Sewell, T., Kolanski, R., & Heiser, G. (2014). *Comprehensive formal verification of an OS microkernel.* *ACM Transactions on Computer Systems*, 32(1), 1–70. https://doi.org/10.1145/2560537
+- McCune, J. M., Li, Y., Qu, N., Zhou, Z., Datta, A., Gligor, V., & Perrig, A. (2010). *TrustVisor: Efficient TCB reduction and attestation.* In *2010 IEEE Symposium on Security and Privacy.* https://doi.org/10.1109/SP.2010.17
 - Necula, G. C. (1997). *Proof‑carrying code.* In *Proceedings of the 24th ACM SIGPLAN‑SIGACT Symposium on Principles of Programming Languages (POPL ’97).* https://doi.org/10.1145/263699.263712
 - Saltzer, J. H., & Schroeder, M. D. (1975). *The protection of information in computer systems.* *Proceedings of the IEEE*, 63(9), 1278–1308. https://doi.org/10.1109/proc.1975.9939
 - Shi, E., Perrig, A., & Van Doorn, L. (2005). *BIND: A fine‑grained attestation service for secure distributed systems.* In *Proceedings of the IEEE Symposium on Security and Privacy (S&P).* https://doi.org/10.1109/sp.2005.4
