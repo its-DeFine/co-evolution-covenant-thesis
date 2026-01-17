@@ -15,11 +15,13 @@ This bibliography is intentionally strict: sources are either peer‑reviewed (j
 ## Human–AI interaction, automation, and cognitive offloading
 
 - Amershi, S., Weld, D., Vorvoreanu, M., Fourney, A., Nushi, B., Collisson, P., Suh, J., Iqbal, S., Bennett, P. N., Inkpen, K., Teevan, J., Kikin‑Gil, R., & Horvitz, E. (2019). *Guidelines for Human‑AI Interaction.* In *Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems (CHI ’19).* https://doi.org/10.1145/3290605.3300233
+- Bainbridge, L. (1983). *Ironies of automation.* *Automatica*, 19(6), 775–779. <https://doi.org/10.1016/0005-1098(83)90046-8>
 - Kamar, E. (2016). *Directions in Hybrid Intelligence: Complementing AI Systems with Human Intelligence.* In *Proceedings of IJCAI 2016*. https://www.ijcai.org/Proceedings/16/Papers/482.pdf
 - Lee, J. D., & See, K. A. (2004). *Trust in automation: Designing for appropriate reliance.* *Human Factors*, 46(1), 50–80. https://doi.org/10.1518/hfes.46.1.50_30392
 - Licklider, J. C. R. (1960). *Man‑Computer Symbiosis.* *IRE Transactions on Human Factors in Electronics*, HFE‑1(1), 4–11. https://doi.org/10.1109/THFE2.1960.4503259
 - Parasuraman, R., & Manzey, D. H. (2010). *Complacency and bias in human use of automation: An attentional integration.* *Human Factors*, 52(3), 381–410. https://doi.org/10.1177/0018720810376055
 - Parasuraman, R., & Riley, V. (1997). *Humans and Automation: Use, Misuse, Disuse, Abuse.* *Human Factors*, 39(2), 230–253. https://doi.org/10.1518/001872097778543886
+- Parasuraman, R., Sheridan, T. B., & Wickens, C. D. (2000). *A model for types and levels of human interaction with automation.* *IEEE Transactions on Systems, Man, and Cybernetics – Part A: Systems and Humans*, 30(3), 286–297. https://doi.org/10.1109/3468.844354
 - Risko, E. F., & Gilbert, S. J. (2016). *Cognitive offloading.* *Trends in Cognitive Sciences*, 20(9), 676–688. https://doi.org/10.1016/j.tics.2016.07.002
 - Skitka, L. J., Mosier, K. L., & Burdick, M. (1999). *Does automation bias decision‑making?* *International Journal of Human‑Computer Studies*, 51(5), 991–1006. https://doi.org/10.1006/ijhc.1999.0252
 - Sparrow, B., Liu, J., & Wegner, D. M. (2011). *Google effects on memory: Cognitive consequences of having information at our fingertips.* *Science*, 333(6043), 776–778. https://doi.org/10.1126/science.1207745
@@ -29,6 +31,16 @@ This bibliography is intentionally strict: sources are either peer‑reviewed (j
 - Bevan, G., & Hood, C. (2006). *What’s measured is what matters: Targets and gaming in the English public health care system.* *Public Administration*, 84(3), 517–538. https://doi.org/10.1111/j.1467-9299.2006.00600.x
 - Courty, P., & Marschke, G. (2004). *An empirical investigation of gaming responses to explicit performance incentives.* *Journal of Labor Economics*, 22(1), 23–56. https://doi.org/10.1086/380402
 - Holmström, B., & Milgrom, P. (1991). *Multitask principal–agent analyses: Incentive contracts, asset ownership, and job design.* *The Journal of Law, Economics, and Organization*, 7(special_issue), 24–52. https://doi.org/10.1093/jleo/7.special_issue.24
+
+## Systems security, capability control, and attestation (background)
+
+- Dennis, J. B., & Van Horn, E. C. (1966). *Programming semantics for multiprogrammed computations.* *Communications of the ACM*, 9(3), 143–155. https://doi.org/10.1145/365230.365252
+- Garfinkel, T., Pfaff, B., Chow, J., Rosenblum, M., & Boneh, D. (2003). *Terra: A virtual machine‑based platform for trusted computing.* In *Proceedings of the 19th ACM Symposium on Operating Systems Principles (SOSP ’03).* https://doi.org/10.1145/945445.945464
+- Hardy, N. (1988). *The Confused Deputy (or why capabilities might have been invented).* *ACM SIGOPS Operating Systems Review*, 22(4), 36–38. https://doi.org/10.1145/54289.871709
+- Necula, G. C. (1997). *Proof‑carrying code.* In *Proceedings of the 24th ACM SIGPLAN‑SIGACT Symposium on Principles of Programming Languages (POPL ’97).* https://doi.org/10.1145/263699.263712
+- Saltzer, J. H., & Schroeder, M. D. (1975). *The protection of information in computer systems.* *Proceedings of the IEEE*, 63(9), 1278–1308. https://doi.org/10.1109/proc.1975.9939
+- Shi, E., Perrig, A., & Van Doorn, L. (2005). *BIND: A fine‑grained attestation service for secure distributed systems.* In *Proceedings of the IEEE Symposium on Security and Privacy (S&P).* https://doi.org/10.1109/sp.2005.4
+- Wahbe, R., Lucco, S., Anderson, T. E., & Graham, S. L. (1993). *Efficient software‑based fault isolation.* In *Proceedings of the 14th ACM Symposium on Operating Systems Principles (SOSP ’93).* https://doi.org/10.1145/168619.168635
 
 ## Identity, attestations, and signatures (standards/specs)
 

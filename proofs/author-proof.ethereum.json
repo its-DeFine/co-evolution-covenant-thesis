@@ -2,18 +2,18 @@
   "schema_version": "coc-author-proof-0.2",
   "chain": "ethereum",
   "address": "0xcB5192138800B5F08aADa2c7B853351CAd44a283",
-  "created_at": "2026-01-17T11:28:34.069Z",
+  "created_at": "2026-01-17T12:58:29.738Z",
   "repo": "https://github.com/its-DeFine/co-evolution-covenant-thesis",
   "author_alias": "DeFine",
   "github": "its-DeFine",
   "artifacts": {
     "REFERENCES.md": {
-      "sha256": "c55c6d422b0b732796ff38e99da1249f3fc0e01ce738e8097ee7420808c47017"
+      "sha256": "f0264708981fe4250687e391f0cd2d8c09adc311bd131426b8722070c6d0e196"
     },
     "WHITEPAPER.md": {
-      "sha256": "035b862b54fb1c852d8433fb6604ef1fd56f65cdc96cb28f162201097eb39e8f"
+      "sha256": "a6990cfcac9f09eeeb323322d3b27079b86b5f33143e94667e1344a4ffe29352"
     }
   },
-  "message": "Co‑Evolution Covenant — authorship proof\nRepo: https://github.com/its-DeFine/co-evolution-covenant-thesis\nAuthor (alias): DeFine (GitHub: its-DeFine)\nChain: ethereum\nAddress: 0xcB5192138800B5F08aADa2c7B853351CAd44a283\nArtifacts:\n- REFERENCES.md: sha256=c55c6d422b0b732796ff38e99da1249f3fc0e01ce738e8097ee7420808c47017\n- WHITEPAPER.md: sha256=035b862b54fb1c852d8433fb6604ef1fd56f65cdc96cb28f162201097eb39e8f\nCreated: 2026-01-17T11:28:34.069Z",
-  "signature": "0xee016ded289c8b2e46a7083d2608395648bcce7e3d6eac200390faad7db97aa63050008121da6fc028fabb027fcc1db402a6ab2f45cb3b0653cc7401f0f941401c"
+  "message": "Co‑Evolution Covenant — authorship proof\nRepo: https://github.com/its-DeFine/co-evolution-covenant-thesis\nAuthor (alias): DeFine (GitHub: its-DeFine)\nChain: ethereum\nAddress: 0xcB5192138800B5F08aADa2c7B853351CAd44a283\nArtifacts:\n- REFERENCES.md: sha256=f0264708981fe4250687e391f0cd2d8c09adc311bd131426b8722070c6d0e196\n- WHITEPAPER.md: sha256=a6990cfcac9f09eeeb323322d3b27079b86b5f33143e94667e1344a4ffe29352\nCreated: 2026-01-17T12:58:29.738Z",
+  "signature": "0x161149b490e2da143a9a2e9459c989577246cac418f00f30a6283de42251f5eb59b09ca35aec8a4428dd651e0681610f520059d684ef2f7517f196983120f34c1c"
 }
