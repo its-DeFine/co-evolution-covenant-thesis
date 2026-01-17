@@ -253,6 +253,11 @@ An example capability profile:
 
 The BDI defines the vector and the rubric.
 
+Draft, implementation-oriented details live in:
+
+- `evaluation/protocol.md`
+- `evaluation/rubric.md`
+
 ### 8.2 Test types
 
 To measure autonomy rather than assisted output:
