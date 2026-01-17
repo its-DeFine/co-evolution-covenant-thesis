@@ -9,4 +9,8 @@ This folder contains draft, implementation-oriented artifacts for the Co‑Evolu
 - `hashing.md` — canonicalization + hashing rules for proofs
 - `examples/` — example objects
 
+Recent additions:
+- Attestation incentives: `growth_credits` + `capability_budget`
+- Attestation hygiene: `disclosure`, `privacy`, and optional `anchors`
+
 These are **not standards** and are expected to change.

@@ -1,20 +1,52 @@
 {
-  "schema_version": "coc-attestation-0.1",
+  "schema_version": "coc-attestation-0.2",
   "issued_at": "2026-01-16T18:00:00Z",
   "subject": {
     "subject_id": "sha256:EXAMPLE_REDACTED"
   },
   "bdi": {
     "bdi_id": "bdi:example-v1",
-    "bdi_version": "1.0.0"
+    "bdi_version": "1.0.0",
+    "bdi_digest": { "algorithm": "sha256", "value": "EXAMPLE_BDI_DIGEST_REDACTED" }
   },
   "evaluation": {
     "protocol_id": "eval:rubric-2026-01-16",
+    "protocol_digest": { "algorithm": "sha256", "value": "EXAMPLE_PROTOCOL_DIGEST_REDACTED" },
     "window": {
       "start_at": "2026-01-01T00:00:00Z",
       "end_at": "2026-01-16T00:00:00Z"
     },
     "test_types": ["unassisted", "retention", "transfer"]
+  },
+  "growth_credits": {
+    "total": 12.5,
+    "delta": 1.25,
+    "units": "GC",
+    "method": "gc:example-0.1",
+    "components": {
+      "reasoning_problem_solving": 0.4,
+      "epistemic_hygiene": 0.35,
+      "communication": 0.5
+    }
+  },
+  "capability_budget": {
+    "policy_id": "cb:example-v1",
+    "level": 2,
+    "delta": 1,
+    "grants": {
+      "memory": { "persistence": "limited", "max_items": 100 },
+      "tools": ["notes_read", "calculator"],
+      "autonomy": { "level": 1, "requires_confirmation": true }
+    }
+  },
+  "disclosure": {
+    "level": "selective",
+    "notes": "Scores and hashes disclosed; raw test content kept private."
+  },
+  "privacy": {
+    "subject_id_scheme": "sha256(subject_id || salt)",
+    "evidence_handling": "hashes-only",
+    "notes": "No raw answers or personally identifying data included."
   },
   "scores": {
     "reasoning_problem_solving": { "value": 0.62, "confidence": 0.7 },
@@ -33,6 +65,15 @@
       "description": "Redacted evaluation artifact reference"
     }
   ],
+  "anchors": [
+    {
+      "chain": "ethereum",
+      "chain_id": 1,
+      "tx_hash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+      "contract_address": "0x2222222222222222222222222222222222222222",
+      "description": "Optional on-chain anchor for the attestation/evidence bundle"
+    }
+  ],
   "signatures": [
     {
       "role": "auditor",
@@ -48,4 +89,3 @@
     }
   ]
 }
-
