@@ -36,6 +36,11 @@ This is conceptual work-in-progress, not professional advice. Do not use this dr
 
 Full disclaimer: `DISCLAIMER.md`.
 
+Safety notes:
+
+- Threat model: `THREAT_MODEL.md`
+- Key custody/rotation: `KEY_MANAGEMENT.md`
+
 ## License
 
 Text is licensed under **CC BY 4.0**. See `LICENSE`.
