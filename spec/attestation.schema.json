@@ -45,6 +45,16 @@
           "type": "string",
           "description": "BDI version identifier or hash."
         },
+        "bdi_digest": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["algorithm", "value"],
+          "properties": {
+            "algorithm": { "type": "string", "description": "E.g. sha256, keccak256." },
+            "value": { "type": "string", "description": "Digest value (format depends on algorithm)." }
+          },
+          "description": "Optional digest binding this attestation to a specific BDI document."
+        },
         "bdi_version": {
           "type": "string"
         }
@@ -58,6 +68,16 @@
         "protocol_id": {
           "type": "string",
           "description": "Identifier for the evaluation protocol/rubric version."
+        },
+        "protocol_digest": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["algorithm", "value"],
+          "properties": {
+            "algorithm": { "type": "string", "description": "E.g. sha256, keccak256." },
+            "value": { "type": "string", "description": "Digest value (format depends on algorithm)." }
+          },
+          "description": "Optional digest binding this attestation to a specific protocol document."
         },
         "window": {
           "type": "object",
@@ -112,6 +132,118 @@
         }
       }
     },
+    "growth_credits": {
+      "description": "Optional incentive primitive representing audited human growth (not a universal intelligence score).",
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["total"],
+          "properties": {
+            "total": { "type": "number", "minimum": 0 },
+            "delta": {
+              "type": "number",
+              "description": "Optional change vs prior attestation; may be negative if growth credits decay."
+            },
+            "units": { "type": "string", "default": "GC" },
+            "method": { "type": "string", "description": "Identifier for the GC calculation method/version." },
+            "components": {
+              "type": "object",
+              "additionalProperties": { "type": "number" },
+              "description": "Optional breakdown by capability dimension."
+            },
+            "notes": { "type": "string" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["redacted", "commitment"],
+          "properties": {
+            "redacted": { "type": "boolean", "const": true },
+            "commitment": {
+              "type": "string",
+              "description": "Digest/commitment to the private full GC details (e.g. sha256 of a private ledger)."
+            },
+            "notes": { "type": "string" }
+          }
+        }
+      ]
+    },
+    "capability_budget": {
+      "description": "Optional incentive primitive representing the AI's permissioned power (tools/memory/autonomy/compute).",
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["policy_id", "level"],
+          "properties": {
+            "policy_id": {
+              "type": "string",
+              "description": "Identifier for the capability budget policy/version that interprets these fields."
+            },
+            "level": { "type": "integer", "minimum": 0 },
+            "delta": { "type": "integer", "description": "Optional change vs prior attestation." },
+            "grants": {
+              "type": "object",
+              "description": "Implementation-defined grants (keep minimal; prefer references to a policy document)."
+            },
+            "notes": { "type": "string" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["redacted", "commitment"],
+          "properties": {
+            "redacted": { "type": "boolean", "const": true },
+            "commitment": {
+              "type": "string",
+              "description": "Digest/commitment to the private full budget details."
+            },
+            "notes": { "type": "string" }
+          }
+        }
+      ]
+    },
+    "disclosure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level"],
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["private", "auditor", "selective", "public", "onchain"],
+          "description": "Intended disclosure level for this attestation object."
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "subject_id_scheme": { "type": "string", "description": "How subject_id is derived (e.g. hash+salt)." },
+        "evidence_handling": { "type": "string", "description": "E.g. hashes-only, encrypted bundle, ZK proof." },
+        "notes": { "type": "string" }
+      }
+    },
+    "anchors": {
+      "type": "array",
+      "description": "Optional on-chain anchors for this attestation or its evidence bundle.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["chain", "tx_hash"],
+        "properties": {
+          "chain": { "type": "string", "description": "Chain family, e.g. ethereum." },
+          "chain_id": { "type": "integer", "minimum": 1 },
+          "tx_hash": { "type": "string", "pattern": "^0x[a-fA-F0-9]{64}$" },
+          "contract_address": { "type": "string", "pattern": "^0x[a-fA-F0-9]{40}$" },
+          "description": { "type": "string" }
+        }
+      }
+    },
     "signatures": {
       "type": "array",
       "minItems": 2,
@@ -122,7 +254,7 @@
         "properties": {
           "role": {
             "type": "string",
-            "enum": ["human", "partner_ai", "auditor"]
+            "enum": ["human", "partner_ai", "evaluator", "auditor"]
           },
           "signer_id": { "type": "string" },
           "signature": {
@@ -135,4 +267,3 @@
     }
   }
 }
-
