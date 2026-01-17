@@ -10,6 +10,13 @@ This list is intentionally pragmatic for a public whitepaper: enough detail to f
 - Roediger, H. L., & Karpicke, J. D. (2006). *Test-enhanced learning: Taking memory tests improves long-term retention.* *Psychological Science*, 17(3), 249–255. https://doi.org/10.1111/j.1467-9280.2006.01693.x
 - Vygotsky, L. S. (1978). *Mind in Society: The Development of Higher Psychological Processes.* Harvard University Press.
 
+## Human–AI teaming / automation / cognitive offloading
+
+- Kamar, E. (2016). *Directions in Hybrid Intelligence: Complementing AI Systems with Human Intelligence.* In *Proceedings of IJCAI 2016*. https://www.ijcai.org/Proceedings/16/Papers/482.pdf
+- Licklider, J. C. R. (1960). *Man-Computer Symbiosis.* *IRE Transactions on Human Factors in Electronics*, HFE-1(1), 4–11. https://doi.org/10.1109/THFE2.1960.4503259
+- Parasuraman, R., & Riley, V. (1997). *Humans and Automation: Use, Misuse, Disuse, Abuse.* *Human Factors*, 39(2), 230–253. https://doi.org/10.1518/001872097778543886
+- Sparrow, B., Liu, J., & Wegner, D. M. (2011). *Google Effects on Memory: Cognitive Consequences of Having Information at Our Fingertips.* *Science*, 333(6043), 776–778. https://doi.org/10.1126/science.1207745
+
 ## Measurement + Goodharting
 
 - Campbell, D. T. (1976). *Assessing the impact of planned social change.* (Campbell’s Law). https://files.eric.ed.gov/fulltext/ED303512.pdf
@@ -32,4 +39,3 @@ This list is intentionally pragmatic for a public whitepaper: enough detail to f
 ## Sybil resistance (background)
 
 - Douceur, J. R. (2002). *The Sybil Attack.* In *IPTPS 2002*. https://www.microsoft.com/en-us/research/publication/the-sybil-attack/
-
