@@ -2,18 +2,23 @@
 
 This repository contains an in-progress thesis draft on a constructive human–AI partnership model: an AI that is *with* you (and controlled by you) while both human capability and AI capability evolve together in a governed, positive‑sum loop.
 
-**Status**: Under active development — not yet finalised.
+**Status**: Under active development — not yet finalised. A September 2026
+research review qualifies several draft claims; see the update below first.
 
 ## Read
 
-- `WHITEPAPER.md` — public whitepaper draft (start here)
-- `THESIS.md` — longer working draft
+- [RESEARCH-UPDATE-2026-09.md](RESEARCH-UPDATE-2026-09.md) — research update, 21 September 2026 (start here)
+- [WHITEPAPER.md](WHITEPAPER.md) — public whitepaper draft (earlier draft; read with the addendum)
+- [THESIS.md](THESIS.md) — longer working draft (earlier draft; read with the addendum)
 - `evaluation/` — draft evaluation protocol + rubric
 - `REFERENCES.md` — working bibliography
 
 ## Proofs
 
-- `proofs/author-proof.ethereum.json` — signed authorship proof for the current whitepaper artifacts (EIP‑191 `personal_sign` style)
+- `proofs/author-proof.ethereum.json` — signed authorship proof covering
+  `WHITEPAPER.md` and `REFERENCES.md` only (EIP‑191 `personal_sign` style).
+  `RESEARCH-UPDATE-2026-09.md` is not covered by that proof and makes no new
+  signed claim.
 
 Verification options:
 
